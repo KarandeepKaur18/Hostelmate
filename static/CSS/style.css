@@ -1,0 +1,69 @@
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+   
+    background-color: white ;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 0; 
+}
+
+.logo img {
+    height: 120px; 
+    width: auto;
+}
+
+.nav-link {
+    color: #333 ;
+    font-weight: 500;
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+     }
+
+.btn-signin {
+    background-color: teal;
+    color: white ;
+    padding: 7px 15px;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.btn-signin:hover {
+    background-color:teal;
+}
+
+main {
+    margin-top: 110px; 
+    height: 80vh;
+    overflow: auto;
+}
+
+footer {
+    background-color: teal;
+    color: white;
+    padding: 40px 0;
+}
+footer a {
+    color: #ddd;
+    text-decoration: none;
+}
+footer a:hover {
+    color: #fff;
+}
+.social-icons a {
+    font-size: 24px;
+    margin: 0 10px;
+    color: white;
+}
+.social-icons a:hover {
+    color:greenyellow;
+}
