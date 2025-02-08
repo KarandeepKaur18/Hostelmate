@@ -21,8 +21,8 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
  
-            <a class="logo" href="#">
-                <img src="/Hostelmate/static/hostelmate-removebg-preview.png" alt="HostelMate Logo">
+            <a class="logo">
+                <img src="/Hostelmate/static/images/hostelmate-removebg-preview.png" alt="HostelMate Logo">
             </a>
 
          
@@ -35,24 +35,69 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-houses"></i> List Your Property</a>
+                        <li class="nav-item dropdown">
+                            <button class="btn  dropdown-toggle" type="button" id="destinationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                Destination
+                            </button>
+                            <div class="dropdown-menu p-3" style="min-width: 500px;" aria-labelledby="destinationDropdown">
+                                <div class="container text-center">
+                                    <div class="row g-2">  <!-- g-2 adds spacing between items -->
+                                        <!-- First Row -->
+                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="#">Option 1</a></div>
+                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="#">Option 2</a></div>
+                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="#">Option 3</a></div>
+                        
+                                        <!-- Second Row -->
+                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="#">Option 4</a></div>
+                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="#">Option 5</a></div>
+                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="#">Option 6</a></div>
+                        
+                                        <!-- Third Row -->
+                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="#">Option 7</a></div>
+                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="#">Option 8</a></div>
+                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="#">Option 9</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        
+                     
+                        
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-telephone"></i> +91 978928393</a>
+                        <a class="nav-link" href="#"><i class="bi bi-telephone"></i>Workation </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-envelope"></i> info@hostelmate.com</a>
+                        <a class="nav-link" href="#"><i class="bi bi-envelope"></i> Connect With us</a>
                     </li>
+                    
                     <li class="nav-item">
-                        <a class="nav-link btn-signin" href="#">Sign In</a>
+                        <a class="nav-link" href="#"><i class="bi bi-envelope"></i> Trips </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-envelope"></i> FAQ </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link btn-signin dropdown-toggle" href="#" id="signinDropdown" role="button" data-bs-toggle="dropdown">
+                                Sign In
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Sign in with Google</a></li>
+                                <li><a class="dropdown-item" href="#">Sign in with Facebook</a></li>
+                                <li><a class="dropdown-item" href="#">Sign in with Email</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Create an Account</a></li>
+                            </ul>
+                        </li>
+                        
                     </li>
                 </ul>
 
                 
-                <form class="d-flex ms-3">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-info" type="submit">Search</button>
-                </form>
+                
             </div>
         </div>
     </nav>
@@ -61,7 +106,7 @@
         {% block main_block %}
         {% endblock %}
     </main>
-
+    
     <footer class="text-center text-lg-start">
         <div class="container">
             <div class="row text-center text-md-start justify-content-between">
@@ -111,7 +156,8 @@
                 
                 </div>
             </div>
-    
+             
+            <br> 
             <hr class="my-4">
     
             <div class="text-center">
