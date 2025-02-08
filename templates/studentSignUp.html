@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block main_block %} 
+ 
+<div class="container">
+    <div class="signup-container">
+        <h2 class="text-center"><strong>Student Sign-Up</strong></h2>
+        <form id="signupForm">
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" required placeholder="Enter Full Name">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" required placeholder="Enter Email Address">
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" required maxlength="10" minlength="10" placeholder="Enter Phone Number">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" required placeholder="Enter Password">
+            </div>
+            <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" required placeholder="Confirm Password">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
