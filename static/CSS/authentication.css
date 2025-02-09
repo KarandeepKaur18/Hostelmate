@@ -1,0 +1,34 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1674d3;
+}
+.signup-container {
+    max-width: 900px;
+    width: 100%;
+    background: rgb(199, 13, 13) ;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.signup-left {
+    padding: 40px;
+}
+.signup-right {
+    background: url('/Hostelmate/static/images/interior.jpg') no-repeat center center;
+    background-size: cover;
+}
+.input-group input {
+    border-radius: 25px;
+    padding: 12px;
+}
+.btn-primary {
+    border-radius: 25px;
+    padding: 12px;
+    width: 100%;
+}
+.toggle-password {
+    cursor: pointer;
+}
