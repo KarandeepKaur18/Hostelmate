@@ -12,7 +12,7 @@ body {
 }
 
 /* Full-screen welcome section */
-.welcome-screen {
+/* .welcome-screen {
     position: fixed;
     top: 0;
     left: 0;
@@ -27,7 +27,7 @@ body {
     z-index: 100;
     transition: opacity 1s ease-in-out;
 
-}
+} */
 
 .hidden {
     opacity: 0;
@@ -94,7 +94,7 @@ body {
 /* Position text over carousel */
 .carousel-caption {
     position: absolute;
-    top: 50%;
+    top: 47%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -105,6 +105,8 @@ body {
 }
 
 /* Style the heading and paragraph */
+
+
 .carousel-caption h1 {
     font-size: 4rem;
     font-weight: bold;
@@ -117,12 +119,34 @@ body {
     font-family: cursive;
 }
 
+
+/* styling search box */
+
 .carousel-search{
     position: absolute;
     margin-top: 60vh;
-    margin-left: 40vw;
+    margin-left: 18vw;
     display: flex;
     justify-content:space-between;
-    
+    z-index: 1;
+    border-radius: 3px solid white;
+    background-color:aliceblue ;
+    border-radius:10px;
 
 }
+
+input.form-control {
+    border-block: revert;
+    background-color: azure;
+    margin: 4px;
+    width: 200px;
+    height: 47px;
+    
+}
+
+button.btn.btn-primary {
+    width: 190px;
+    height: 47px;
+    margin: 3px;
+}
+
