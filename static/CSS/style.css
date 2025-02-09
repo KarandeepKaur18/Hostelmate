@@ -1,3 +1,5 @@
+/* Styling of base.html */
+
 body {
     margin: 0;
     padding: 0;
@@ -5,14 +7,18 @@ body {
 
 
 .navbar {
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 100%;
-    background-color: white;
+    background-color:antiquewhite;
+    background-image: url(/Hostelmate/static/images/sky.avif);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     padding: 12px 0;
     height: 60px;
+   
 }
+    
+
 
 .navbar .container {
     display: flex;
@@ -42,7 +48,7 @@ body {
 .logo img {
     max-height: 150px;
     width: auto;
-    height: 94px;
+    height: 99px;
 }
 
 
@@ -76,7 +82,7 @@ form.d-flex button {
 
 
 main {
-    margin-top: 120px;
+    margin-top: 60px;
     height: 80vh;
     overflow: auto;
 }
@@ -150,6 +156,10 @@ footer .social-section h5 {
     transform: scale(1.1);
 }
 
+/* Styling of base.html ends here */
+
+
+/* Styling of about page starts here*/
 /* General Styles */
 body {
     font-family: 'Poppins', sans-serif;
@@ -229,4 +239,5 @@ h2 {
 
 
 
+/* Styling of about.html ends here */
 
