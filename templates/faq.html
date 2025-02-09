@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block main_block %}
+
+
+
+<div class="image-container">
+    <img src="{{ url_for('static', filename='images/Frame 17897.png') }}" alt="">
+</div>
+
+<div class="text">
+    <h1 class="text-center">Frequently Asked <span class="color"> Questions </span></h1>
+</div>
+
+<div class="accordion" id="faqAccordion">
+
+    <!-- Question 1 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                <b>What facilities are available in your hostels?</b>
+            </button>
+        </h2>
+        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                Our hostels offer comfortable dorms, private rooms, free high-speed WiFi, 24/7 security, shared kitchens, laundry services, and common lounges. Select hostels also have co-working spaces, bike rentals, and guided tours.
+            </div>
+        </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                <b>Is the Wi-Fi in your hostels sufficient for work?</b>
+            </button>
+        </h2>
+        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                Yes, our high-speed WiFi is perfect for remote work, video calls, and streaming. Many hostels also feature co-working spaces with power outlets for productivity.
+            </div>
+        </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                <b>Do you provide laptops for workation guests?</b>
+            </button>
+        </h2>
+        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                No, we do not provide laptops. However, our hostels offer dedicated workspaces, free WiFi, and power outlets for a productive workation.
+            </div>
+        </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                <b>Do all hostels have parking?</b>
+            </button>
+        </h2>
+        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                Parking availability varies by location. Some hostels offer on-site parking, while others have nearby public parking options.
+            </div>
+        </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                <b>Can I set up my own camp at the hostel?</b>
+            </button>
+        </h2>
+        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                Most of our hostels do not allow personal camping. However, some nature-focused hostels may have designated areas for camping. Check with our support team for details.
+            </div>
+        </div>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                <b>What is the minimum and maximum duration I can book for?</b>
+            </button>
+        </h2>
+        <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                The minimum booking duration is one night. Some hostels allow extended stays for weeks or months. Contact us for long-term stay options.
+            </div>
+        </div>
+    </div>
+
+    <!-- Question 7 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
+                <b>What types of rooms are available?</b>
+            </button>
+        </h2>
+        <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                We offer dorm rooms (budget-friendly), private rooms, workation rooms, and themed/premium rooms for a comfortable stay.
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
