@@ -1,0 +1,128 @@
+/* Styling of landing page starts here  */
+
+ /* Welcome page styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Full-screen welcome section */
+.welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #121212;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    z-index: 100;
+    transition: opacity 1s ease-in-out;
+
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Typing effect */
+.typing {
+    display: inline-block;
+    border-right: 3px solid #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 2s steps(30, end) forwards, blink 0.8s infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 350px; } /* Adjust based on text length */
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Welcome page styling ends here */
+
+
+/* Main page styling Starts here */
+/* Main content (hidden initially) */
+.main-content {
+    display: none;
+    text-align: center;
+    padding: 20px;
+}
+
+.HomePage{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.homeimage{
+    width: 100vw;
+    height: 80vh;
+    position: relative;
+    opacity: 0.5;
+}
+
+/* Make carousel images fit properly */
+
+/* Background overlay to make text visible */
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay (50% opacity) */
+    z-index: 1;
+}
+
+/* Position text over carousel */
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2; /* Ensures text is above overlay */
+    width: 50vw;
+
+}
+
+/* Style the heading and paragraph */
+.carousel-caption h1 {
+    font-size: 4rem;
+    font-weight: bold;
+ 
+}
+
+.carousel-caption p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-family: cursive;
+}
+
+.carousel-search{
+    position: absolute;
+    margin-top: 60vh;
+    margin-left: 40vw;
+    display: flex;
+    justify-content:space-between;
+    
+
+}
