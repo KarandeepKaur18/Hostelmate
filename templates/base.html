@@ -23,11 +23,7 @@
         <div class="container">
  
             <a class="logo" href="#">
-<<<<<<< HEAD
                 <img src="{{url_for('static',filename='images/hostelMate-removebg-preview.png')}}" alt="HostelMate Logo">
-=======
-                <img src="/Hostelmate/static/hostelmate-removebg-preview.png" alt="HostelMate Logo">
->>>>>>> 14ded73f00ab80b9d4859afec97c8f80b143db4b
             </a>
 
          
@@ -90,7 +86,7 @@
                                 Sign In
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Sign in with Google</a></li>
+                                <li><a class="dropdown-item" href="{{url_for('login')}}">Sign in with Google</a></li>
                                 <li><a class="dropdown-item" href="#">Sign in with Facebook</a></li>
                                 <li><a class="dropdown-item" href="#">Sign in with Email</a></li>
                                 <li><hr class="dropdown-divider"></li>

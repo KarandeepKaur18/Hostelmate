@@ -1,4 +1,4 @@
-from flask import Flask,render_template,redirect,url_for
+from flask import Flask,render_template,redirect,url_for, flash,request
 from flask_sqlalchemy import SQLAlchemy
 
 app=Flask(__name__)
@@ -22,6 +22,14 @@ def staff_sign_up():
 @app.route("/login")
 def login():
     return render_template("login.html")
+
+@app.route("/forgot_password")
+def forgot_password():
+    return render_template("forgot_password.html")
+
+@app.route("/change_password")
+def change_password():
+    return render_template("change_password.html")
 
 @app.route("/signup")
 def signup():
