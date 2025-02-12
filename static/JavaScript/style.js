@@ -17,41 +17,41 @@
 
 
 
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
+    document.addEventListener("DOMContentLoaded", function () {
+        // Accept Terms Button Click Event
+        const acceptButton = document.querySelector(".accept-terms");
+    
+        if (acceptButton) {
+            acceptButton.addEventListener("click", function () {
+                alert("Thank you for accepting the Terms and Conditions!");
+                // Store acceptance in localStorage
+                localStorage.setItem("termsAccepted", "true");
+            });
+        }
+    
+        // Smooth Scrolling for Internal Links
+        document.querySelectorAll("a[href^='#']").forEach(anchor => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute("href")).scrollIntoView({
+                    behavior: "smooth"
                 });
-            }
+            });
         });
+    
+        // Sticky Navigation Effect
+        const header = document.querySelector(".header");
+        if (header) {
+            window.addEventListener("scroll", function () {
+                if (window.scrollY > 50) {
+                    header.classList.add("sticky");
+                } else {
+                    header.classList.remove("sticky");
+                }
+            });
+        }
     });
-
-    // Update active navigation item based on scroll position
-    const sections = document.querySelectorAll('.section');
-    const navLinks = document.querySelectorAll('.nav-menu a');
-
-    function updateActiveNavItem() {
-        let currentSection = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (window.scrollY >= sectionTop - 100) {
-                currentSection = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${currentSection}`) {
-                link.classList.add('active');
-            }
-        });
-    }
+    
 
     // Show/hide back to top button
     const backToTop = document.querySelector('.back-to-top');
@@ -91,4 +91,30 @@
             stat.style.transition = 'all 0.6s ease';
             observer.observe(stat);
         });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const filterButtons = document.querySelectorAll(".filter-btn");
+            const pressCards = document.querySelectorAll(".press-card");
+        
+            filterButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    filterButtons.forEach(btn => btn.classList.remove("active"));
+                    this.classList.add("active");
+        
+                    const filterValue = this.getAttribute("data-filter");
+        
+                    pressCards.forEach(card => {
+                        const category = card.getAttribute("data-category");
+        
+                        if (filterValue === "all" || category === filterValue) {
+                            card.style.display = "block";
+                        } else {
+                            card.style.display = "none";
+                        }
+                    });
+                });
+            });
+        });
+            
 

@@ -1,5 +1,6 @@
 from flask import Flask,render_template,redirect,url_for, flash,request
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 app=Flask(__name__)
 
@@ -47,7 +48,9 @@ def faq():
 def travel():
     return render_template("travel.html")
 
-
+@app.route('/press')
+def press():
+    return render_template('press.html')
 
 
 blog_data = {
@@ -100,6 +103,17 @@ def blog_page(blog_id):
         return render_template('blog_template.html', blog=blog_data[blog_id])
     return "Blog not found", 404
 
+
+
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///hostel.db'
+db = SQLAlchemy(app)
+
+class TermsAcceptance(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, nullable=False)
+    accepted_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    ip_address = db.Column(db.String(45), nullable=False)
 
 @app.route('/terms')
 def terms():

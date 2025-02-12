@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block main_block %}
+
+<link rel="stylesheet" href="{{url_for('static',filename='CSS/terms.css')}}">
+
+<header class="page-header">
+    <h1>Press Mentions</h1>
+    <p>See what the media is saying about City Hostel</p>
+</header>
+
+<main class="main-container">
+    <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="2024">2024</button>
+        <button class="filter-btn" data-filter="2023">2023</button>
+        <button class="filter-btn" data-filter="awards">Awards</button>
+    </div>
+
+    <div class="press-grid">
+        <article class="press-card" data-category="2024">
+            <img src="{{ url_for('static', filename='images/20241217082244.jpg') }}" alt="Press 1" class="press-card__image">
+            <div class="press-card__content">
+                <h2 class="press-card__title">City Hostel Wins Best Budget Stay 2024</h2>
+                <p class="press-card__excerpt">We are honored to receive the Best Budget Stay award...</p>
+                <p class="press-card__date">January 15, 2024</p>
+            </div>
+        </article>
+
+        <article class="press-card" data-category="2023">
+            <img src="{{url_for('static',filename='images/top10.jpg')}}" alt="Press 2" class="press-card__image">
+            <div class="press-card__content">
+                <h2 class="press-card__title">Top 10 Hostels in Europe</h2>
+                <p class="press-card__excerpt">City Hostel makes it to the top 10 list of hostels in Europe...</p>
+                <p class="press-card__date">November 10, 2023</p>
+            </div>
+        </article>
+
+        <article class="press-card" data-category="awards">
+            <img src="{{url_for('static',filename='images/award.jpg')}}" alt="Press 3" class="press-card__image">
+            <div class="press-card__content">
+                <h2 class="press-card__title">Hostel of the Year Award</h2>
+                <p class="press-card__excerpt"">We are proud to be named Hostel of the Year by Travel Weekly</p>
+                <p class="press-card__date">March 5, 2024</p>
+            </div>
+        </article>
+    </div>
+</main>
+<script src="{{ url_for('static',filename='JavaScript/style.js') }}"></script>
+
+{% endblock %}
