@@ -119,6 +119,9 @@ class TermsAcceptance(db.Model):
 def terms():
     return render_template('terms.html')
 
+@app.route('/destination')
+def desti():
+    return render_template('destination.html')
 
 
 @app.route('/career')

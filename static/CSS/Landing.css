@@ -12,7 +12,7 @@ body {
 }
 
 /* Full-screen welcome section */
-/* .welcome-screen {
+.welcome-screen {
     position: fixed;
     top: 0;
     left: 0;
@@ -27,7 +27,7 @@ body {
     z-index: 100;
     transition: opacity 1s ease-in-out;
 
-} */
+}
 
 .hidden {
     opacity: 0;
