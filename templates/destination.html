@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/Landing.css')}}">
+</head>
+<body>
+    <div class="container_desti">
+       <div class="desti_div">
+        <div class="inner_dest"> <img class="desti_img" src="{{ url_for('static',filename='images/desti1.png')}}" , alt="Image of Destination"></div>
+        <div class="inner_dest dest_text"><h1>Alleppey</h1></div>
+       </div>
+
+       <div class="desti_div">
+        <div class="inner_dest"> <img class="desti_img"  src="{{ url_for('static',filename='images/desti2.jpg')}}" , alt="Image of Destination"></div>
+        <div class="inner_dest dest_text"><h1>Andamans</h1></div>
+       </div>
+
+       <div class="desti_div">
+        <div class="inner_dest"> <img  class="desti_img" src="{{ url_for('static',filename='images/delhi.jpg')}}" , alt="Image of Destination"></div>
+        <div class="inner_dest dest_text"><h1>Delhi</h1></div>
+       </div>
+
+
+       <div class="desti_div">
+        <div class="inner_dest"> <img  class="desti_img"  src="{{ url_for('static',filename='images/mumbai.png')}}" , alt="Image of Destination"></div>
+        <div class="inner_dest dest_text"><h1>Mumbai</h1></div>
+       </div>
+
+
+       <div class="desti_div">
+        <div class="inner_dest"> <img class="desti_img"  src="{{ url_for('static',filename='images/burwa.png')}}" , alt="Image of Destination"></div>
+        <div class="inner_dest dest_text"><h1>Burwa</h1></div>
+       </div>
+
+
+       <div class="desti_div">
+        <div class="inner_dest"> <img class="desti_img" src="{{ url_for('static',filename='images/desti3.jpg')}}" , alt="Image of Destination"></div>
+        <div class="inner_dest dest_text"><h1>Hampi</h1></div>
+       </div>
+
+    </div>
+
+
+    {% block scripts %}
+    <script src="{{ url_for('static',filename='JavaScript/landing.js') }}"></script>
+    {% endblock %}
+  
+</body>
+</html>

@@ -1,0 +1,19 @@
+.loginUpper{
+    background-image:url(/static/images/login.jpg) ;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.signupUpper{
+    height: 80vh;
+    background-image:url(/static/images/signup.jpg) ;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+}
+
+
+.card:hover{
+    transform: scale(1.1);
+}

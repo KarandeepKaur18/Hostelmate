@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block main_block %}
+
+<div class="admin" style="padding-right:50px;padding-left: 50px;padding-top: 20px;padding-bottom: 20px; ">
+    <div class="row signup-container">
+        <div class="col-md-6 signup-left">
+            <h2 class="text-center"><strong>Staff Sign-Up</strong></h2>
+            <form id="staffSignupForm" method="POST">
+                <div class="mb-3">
+                    <input type="text" name="staffName" class="form-control" id="staffName" required placeholder="Name">
+                </div>
+                <div class="mb-3">
+                    <input type="email" name="staffEmail" class="form-control" id="staffEmail" required
+                        placeholder="Email">
+                </div>
+                <div class="mb-3">
+                    <input type="tel" name="staffPhone" class="form-control" id="staffPhone" required maxlength="10"
+                        minlength="10" placeholder="Phone Number">
+                </div>
+                <div class="mb-3">
+                    <select class="form-select" name="staffrole" id="staffrole" required>
+                        <option value="">Select Role</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Warden">Warden</option>
+                        <option value="Caretaker">Caretaker</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <input type="password" name="password" class="form-control" id="password" required
+                        placeholder="Password">
+                </div>
+                <div class="mb-3">
+                    {#<label for="confirmPassword" class="form-label">Confirm Password</label>#}
+                    <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" required
+                        placeholder="Confirm Password">
+                </div>
+                <button type="submit" class="btn btn-primary w-100"> Sign Up </button>
+            </form>
+            <p class="text-center mt-3">Have an account? <a href="#">Sign In</a></p>
+        </div>
+        <div class="col-md-5 signup-right d-none d-md-block" style="padding: 10px;">
+                <img src="{{url_for('static',filename='/images/stafflogo.jpg')}}" alt="interior logo" width="700px" height="500px">
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
