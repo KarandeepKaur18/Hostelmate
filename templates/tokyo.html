@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TOKYO</title>
+    <link rel="stylesheet" href="static/css/city.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image">
+            <img src="{{url_for('static',filename='images/tokyo.jpg')}}" alt="Hostel Image">
+        </div>
+        <div class="text">
+            <h1 class="font">TOKYO</h1>
+            <p>
+                Tokyo, a bustling metropolis, is an exciting destination for hostel travelers blending 
+                tradition and modernity. Hostels in Tokyo provide affordable accommodations close to iconic
+                 attractions like Shibuya Crossing, Senso-ji Temple, and Akihabara, creating a social environment
+                  where travelers can connect and share their experiences. Immerse yourself in Japanese culture, 
+                  indulge in delicious cuisine, and explore the city's vibrant neighborhoods, all while staying in
+                   a friendly and communal hostel atmosphere.
+            </p>
+            <div style="display: flex; align-items: center; width: 100%;">
+                <h1 class="font2">WHAT IT IS FAMOUS FOR?</h1>
+                <div class="arrow-container">
+                    <button class="arrow" onclick="slide('left')">&lt;</button>
+                    <button class="arrow" onclick="slide('right')">&gt;</button>
+                </div>
+            </div>
+            <div class="slider-wrapper">
+                <div class="slider" id="famous-slider">
+                    <div class="small-div"><img src="{{url_for('static',filename='images/tokyo 1.jpg')}}" alt="Hostel Image"></div>
+                    <div class="small-div"><img src="{{url_for('static',filename='images/tokyo 2.jpg')}}" alt="Hostel Image"></div>
+                    <div class="small-div"><img src="{{url_for('static',filename='images/tokyo 3.jpg')}}" alt="Hostel Image"></div>
+                    <div class="small-div"><img src="{{url_for('static',filename='images/tokyo 4.jpg')}}" alt="Hostel Image"></div>
+                    <div class="small-div"><img src="{{url_for('static',filename='images/tokyo 5.jpg')}}" alt="Hostel Image"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="itinerary">
+        <h1 class="font2">ITINERARY</h1>
+        <div style="display: flex; align-items: center; width: 100%;">
+            <h3>How to spend a day in Tokyo</h3>
+            <div class="arrow-container">
+                <button class="arrow" onclick="slideDay('left')">&lt;</button>
+                <button class="arrow" onclick="slideDay('right')">&gt;</button>
+            </div>
+        </div>
+        <div class="slider-wrapper">
+            <div class="slider" id="day-slider">
+                <div class="day-div"><span class="timings">- - - - ( 7:00 AM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/tokyo day1.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Breakfast at the Hostel</b>
+                    Start your day with a hearty breakfast at your hostel. Many hostels offer a variety of options to kickstart your day.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 8:00 AM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/tokyo day2.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Visit Shibuya Crossing</b>Head to the iconic Shibuya Crossing early to avoid the crowds. It's a great way to experience the hustle and bustle of Tokyo.
+                 </span></div>
+                <div class="day-div"><span class="timings">- - - - ( 10:00 AM ) - - - -</span><div class="pink-div"><img src="{{url_for('static',filename='images/tokyo day3.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Explore Harajuku </b>Wander through the vibrant streets of Harajuku, known for its unique fashion and trendy shops. Don't miss the famous Takeshita Street.
+                   </span></div>
+                <div class="day-div"><span class="timings">- - - - ( 1:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/tokyo day4.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Lunch</b> Try some delicious Japanese cuisine at a nearby café. Look for places that offer affordable options like ramen or sushi.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 2:30 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/tokyo day5.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Visit Meiji Shrine</b>
+                    Explore this beautiful Shinto shrine surrounded by lush greenery. It's a peaceful spot to relax and enjoy the serene atmosphere.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 4:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/tokyo day6.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Relax at Shinjuku Gyoen</b>
+                    Take a break at this stunning park and enjoy the beautiful gardens. It's a perfect spot to unwind and take in the natural beauty.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 6:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/tokyo day7.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Shopping at Shinjuku </b>Wander through the bustling streets of Shinjuku and explore the various shops and markets. You can find everything from electronics to fashion.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 9:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/tokyo day8.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Dinner </b>End your day with a delicious dinner. Many hostels have communal kitchens or dining areas where you can socialize with fellow travelers.</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="hostel-container">
+        <div class="hostel-image">
+            <img src="{{url_for('static',filename='images/tokyo hostel.webp')}}" alt="Hostel Image">
+            <div class="tag"></div>
+</div>
+<div class="hostel-details">
+    <h2>The Hostemate Tokyo</h2>
+    <p>
+        Located in the heart of Tokyo, just a short walk from bustling Shibuya Crossing, vibrant Harajuku, and iconic Senso-ji 
+        Temple, this hostel offers cozy dormitories, private rooms, complimentary Wi-Fi, a rooftop terrace with stunning views,
+         and an inviting outdoor pool. It's the perfect spot to immerse yourself in Tokyo's dynamic culture and enjoy the city's
+          lively atmosphere.
+    </p>
+    <div class="icons">
+        <img src="https://img.icons8.com/ios-filled/50/000000/coffee.png" alt="Coffee">
+        <img src="https://img.icons8.com/ios-filled/50/000000/bed.png" alt="Bed">
+        <img src="https://img.icons8.com/ios-filled/50/000000/wifi.png" alt="Wi-Fi">
+        <img src="https://img.icons8.com/ios-filled/50/000000/swimming.png" alt="Pool">
+    </div>
+    <p class="price">Starting @ <span>₹462</span>/night</p>
+    <button class="book-btn">Book Now</button>
+</div>
+</div>
+    
+<script src="{{ url_for('static',filename='JavaScript/city.js') }}"></script>
+</body>
+</html>

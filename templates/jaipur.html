@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JAIPUR</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/city.css')}}">
+</head>
+<body>
+    <div class="container">
+        <div class="image">
+            <img src="{{url_for('static',filename='images/jaipur.webp')}}" alt="Hostel Image">
+        </div>
+        <div class="text">
+            <h1 class="font">JAIPUR</h1>
+            <p>
+                Jaipur, known as the Pink City, is a vibrant destination for hostel travelers offering an affordable and culturally rich experience.
+                 Hostels in Jaipur are budget-friendly and located close to historic landmarks such as the Amber Fort, City Palace, and Hawa Mahal, 
+                 fostering a social environment where travelers can connect and share their adventures. Enjoy exploring bustling markets, savoring
+                  local cuisine, and immersing yourself in the city's royal heritage, all while staying in a welcoming and friendly hostel atmosphere.
+            <div style="display: flex; align-items: center; width: 100%;">
+                <h1 class="font2">WHAT IT IS FAMOUS FOR?</h1>
+                <div class="arrow-container">
+                    <button class="arrow" onclick="slide('left')">&lt;</button>
+                    <button class="arrow" onclick="slide('right')">&gt;</button>
+                </div>
+            </div>
+            <div class="slider-wrapper">
+                <div class="slider" id="famous-slider">
+                    <div class="small-div"> <img src="{{url_for('static',filename='images/jaipur 1.webp')}}" alt="Hostel Image"></div>
+                    <div class="small-div"> <img src="{{url_for('static',filename='images/jaipur 2.webp')}}" alt="Hostel Image"></div>
+                    <div class="small-div"> <img src="{{url_for('static',filename='images/jaipur 3.webp')}}" alt="Hostel Image"></div>
+                    <div class="small-div"> <img src="{{url_for('static',filename='images/jaipur 4.webp')}}" alt="Hostel Image"></div>
+                    <div class="small-div"> <img src="{{url_for('static',filename='images/jaipur 5.webp')}}" alt="Hostel Image"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="itinerary">
+        <h1 class="font2">ITINERARY</h1>
+        <div style="display: flex; align-items: center; width: 100%;">
+            <h3>How to spend a day in Jaipur</h3>
+            <div class="arrow-container">
+                <button class="arrow" onclick="slideDay('left')">&lt;</button>
+                <button class="arrow" onclick="slideDay('right')">&gt;</button>
+            </div>
+        </div>
+        <div class="slider-wrapper">
+            <div class="slider" id="day-slider">
+                <div class="day-div"><span class="timings">- - - - ( 7:00 AM ) - - - - </span><div class="pink-div"> <img src="{{url_for('static',filename='images/jaipur day1.webp')}}" alt="Hostel Image"></div><span class="time"><b>Breakfast at the Hostel</b>
+                    Start your day with a hearty breakfast at your hostel. Many hostels offer a variety of options to kickstart your day.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 8:00 AM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/jaipur day2.jpg')}}" alt="Hostel Image"></div><span class="time"></div><span class="time"><b>Visit Hawa Mahal</b>Head to 
+                    the iconic "Palace of Winds" early to avoid the crowds. It's a great way to get a stunning view of Jaipur's architecture.
+                </span></div>
+                <div class="day-div"><span class="timings">- - - - ( 10:00 AM ) - - - -</span><div class="pink-div"><img src="{{url_for('static',filename='images/jaipur day3.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Explore Jantar Mantar</b>Just 
+                    a short walk from Hawa Mahal, this UNESCO World Heritage site is an astronomical observatory with fascinating instruments.
+                    </span></div>
+                <div class="day-div"><span class="timings">- - - - ( 1:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/jaipur day4.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Lunch</b> Try some authentic Rajasthani cuisine at a nearby restaurant. Look for places that offer thali meals for a variety of dishes.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 2:30 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/jaipur day5.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Visit City Palace and Chandra Mahal</b>
+                    Explore the grandeur of Jaipur's royal history. The palace complex offers beautiful gardens and stunning views.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 4:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/jaipur day6.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Relax at Bani Park</b>
+                    Take a leisurely stroll or relax at a nearby park in the Bani Park area. It's a peaceful spot to unwind.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 6:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/jaipur day7.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Shopping at Johari Bazaar </b>Wander through the bustling markets and pick up some souvenirs, jewelry, or traditional textiles.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 9:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/jaipur day.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Dinner </b>End your day with a delicious dinner. Many hostels have communal kitchens or dining areas where you can socialize with fellow travelers.</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="hostel-container">
+        <div class="hostel-image">
+            <img src="{{url_for('static',filename='images/manali hostel.webp')}}" alt="Hostel Image">
+            <div class="tag"></div>
+</div>
+<div class="hostel-details">
+    <h2>The Hostemate Jaipur</h2>
+    <p>
+        Located in the heart of Jaipur, just a short walk from the City Palace, Hawa Mahal, and bustling markets
+        , this hostel offers cozy dormitories, private rooms, complimentary Wi-Fi, a rooftop terrace with stunning 
+        views, and a refreshing outdoor pool. It's the perfect spot to immerse yourself in Jaipur's rich cultural 
+        heritage and vibrant atmosphere.
+    </p>
+    <div class="icons">
+        <img src="https://img.icons8.com/ios-filled/50/000000/coffee.png" alt="Coffee">
+        <img src="https://img.icons8.com/ios-filled/50/000000/bed.png" alt="Bed">
+        <img src="https://img.icons8.com/ios-filled/50/000000/wifi.png" alt="Wi-Fi">
+        <img src="https://img.icons8.com/ios-filled/50/000000/swimming.png" alt="Pool">
+    </div>
+    <p class="price">Starting @ <span>₹462</span>/night</p>
+    <button class="book-btn">Book Now</button>
+</div>
+</div>
+    
+<script src="{{ url_for('static',filename='JavaScript/city.js') }}"></script>
+</body>
+</html>

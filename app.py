@@ -223,11 +223,42 @@ def career():
     ]
     return render_template('career.html', jobs=jobs)
 
+@app.route('/bali')
+def bali():
+    return render_template('bali.html') 
+
+@app.route('/singapur')
+def singapur():
+    return render_template('singapur.html')
+
+@app.route('/barcelona')
+def barcelona():
+    return render_template('barcelona.html')
+
+
+@app.route('/manali')
+def manali():
+    return render_template('manali.html')
+
+@app.route('/paris')
+def paris():
+    return render_template('paris.html')
+
+@app.route('/tokyo')
+def tokyo():
+    return render_template('tokyo.html')
+
+@app.route('/rishikesh')
+def rishikesh():
+    return render_template('rishikesh.html')
+
+@app.route('/goa')
+def goa():
+    return render_template('goa.html')
+
 
 
 if __name__ == '__main__':
     app.run(debug=True)
 
     
-
-

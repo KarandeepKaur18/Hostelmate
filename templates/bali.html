@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bali</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+  
+  
+  <link rel="stylesheet" href="{{url_for('static',filename='CSS/city.css')}}">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <div class="container">
+        <div class="image">
+           
+            <img src="{{url_for('static',filename='images/bali.webp')}}" alt="Hostel Image">
+        </div>
+        <div class="text">
+            <h1 class="font">BALI</h1>
+            <p>
+                Bali, often called the "Island of the Gods," is a paradise in Indonesia known for its stunning beaches
+                , lush rice terraces, and vibrant cultural traditions. This tropical destination offers an enchanting 
+                blend of natural beauty and rich cultural experiences, making it a must-visit for travelers seeking both 
+                adventure and relaxation. With its warm hospitality and diverse attractions, Bali is truly a slice of heaven on Earth. 
+            </p>
+            <div style="display: flex; align-items: center; width: 100%;">
+                <h1 class="font2">WHAT IT IS FAMOUS FOR?</h1>
+                <div class="arrow-container">
+                    <button class="arrow" onclick="slide('left')">&lt;</button>
+                    <button class="arrow" onclick="slide('right')">&gt;</button>
+                </div>
+            </div>
+            <div class="slider-wrapper">
+                <div class="slider" id="famous-slider">
+                    <div class="small-div"><img src="{{url_for('static',filename='images/bali 1.jpg')}}" alt="Hostel Image"></div>
+                    <div class="small-div"><img src="{{url_for('static',filename='images/bali 2.jpg')}}" alt="Hostel Image"></div>
+                    <div class="small-div"><img src="{{url_for('static',filename='images/bali3.jpg')}}" alt="Hostel Image"></div>
+                    <div class="small-div"><img src="{{url_for('static',filename='images/bali 4.jpg')}}" alt="Hostel Image"></div>
+                    <div class="small-div"><img src="{{url_for('static',filename='images/bali 5.jpg')}}" alt="Hostel Image"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="itinerary">
+        <h1 class="font2">ITINERARY</h1>
+        <div style="display: flex; align-items: center; width: 100%;">
+            <h3>How to spend a day in Bali</h3>
+            <div class="arrow-container">
+                <button class="arrow" onclick="slideDay('left')">&lt;</button>
+                <button class="arrow" onclick="slideDay('right')">&gt;</button>
+            </div>
+        </div>
+        <div class="slider-wrapper">
+            <div class="slider" id="day-slider">
+                <div class="day-div"><span class="timings">- - - - ( 7:00 AM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/bali day1.webp')}}" alt="Hostel Image"></div><span class="time"><b>Breakfast at the Hostel</b>
+                    Start your day with a hearty breakfast at your hostel. Many hostels in Bali offer delicious breakfast options, often included in your stay. A great
+                     choice is (hostel name), known for its lush setting and satisfying morning meals.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 8:00 AM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/bali day2.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Head to Uluwatu Temple</b>, perched 
+                    on a cliff overlooking the Indian Ocean. This iconic spot is perfect for early morning exploration before it gets crowded. Enjoy the stunning views and 
+                    serene atmosphere.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 10:00 AM ) - - - -</span><div class="pink-div"><img src="{{url_for('static',filename='images/goa beach.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Beach Time </b>at Padang Padang
+                    Make your way to Padang Padang Beach, one of Bali's most famous beaches. Relax on the sandy shores, take a dip in the crystal-clear waters, and maybe even 
+                    catch a wave if you're into surfing.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 1:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/goa lunch.webp')}}" alt="Hostel Image"></div><span class="time"><b>Lunch</b> at a Local Warung
+                    Experience authentic Balinese cuisine by having lunch at a local warung (small family-owned restaurant). Try dishes like Nasi Goreng or Mie Goreng for a flavorful meal.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 2:30 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/bali spa.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Spa and Relaxation</b>
+                    Indulge in a rejuvenating spa session at a nearby spa. Bali is known for its luxurious spa treatments, offering massages, facials, and other relaxing therapies. Tjampuhan Spa is a great 
+                    option nestled in Ubud's natural surroundings.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 4:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/bali shopping.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Shopping in Seminyak</b>
+                    Head to Seminyak for some shopping. The area is renowned for its boutique shops, artisan stores, and vibrant markets. You can find unique souvenirs, clothing, and handmade crafts.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 6:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/bali sunset.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Sunset </b>at Tanah Lot Temple
+                    Visit Tanah Lot Temple to witness one of Bali's most breathtaking sunsets. The temple is located on a rock formation and offers stunning views as the sun dips below the horizon.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 9:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/goa dinner.webp')}}" alt="Hostel Image"></div><span class="time"><b>Dinner </b>at the Hostel or Local Restaurant
+                    End your day with dinner back at your hostel or at a local restaurant. Captain Goose Hostel in Kuta offers a cozy dining atmosphere, or you can explore nearby eateries for a variety of options.</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="hostel-container">
+        <div class="hostel-image">
+            <img src="{{url_for('static',filename='images/goa hostel.webp')}}" alt="Hostel Image">
+            <div class="tag"></div>
+</div>
+<div class="hostel-details">
+    <h2>The Hostemate Bali</h2>
+    <p>
+        Located in the heart of Canggu, just a short walk from the beach, surf spots, and vibrant cafes.
+        The hostel offers cozy dorms, private rooms, free Wi-Fi, a rooftop lounge, and an outdoor pool.
+    </p>
+    <div class="icons">
+        <img src="https://img.icons8.com/ios-filled/50/000000/coffee.png" alt="Coffee">
+        <img src="https://img.icons8.com/ios-filled/50/000000/bed.png" alt="Bed">
+        <img src="https://img.icons8.com/ios-filled/50/000000/wifi.png" alt="Wi-Fi">
+        <img src="https://img.icons8.com/ios-filled/50/000000/swimming.png" alt="Pool">
+    </div>
+    <p class="price">Starting @ <span>₹462</span>/night</p>
+    <button class="book-btn">Book Now</button>
+</div>
+</div>
+    
+<script src="{{ url_for('static',filename='JavaScript/city.js') }}"></script>
+</body>
+</html>

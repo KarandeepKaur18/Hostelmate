@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Singapore</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/city.css')}}">
+</head>
+<body>
+    <div class="container">
+        <div class="image">
+            <img src="{{url_for('static',filename='images/singapore.jpg')}}" alt="Hostel Image">
+        </div>
+        <div class="text">
+            <h1 class="font">SINGAPORE</h1>
+            <p>
+                Singapore offers budget travelers an exciting blend of cultural diversity, 
+                modernity, and convenience. Accommodations here are known for their cleanliness,
+                 friendly atmosphere, and social vibe, making it easy to connect with fellow explorers.
+                  From your base, you can effortlessly visit iconic landmarks like Marina Bay Sands,
+                   Gardens by the Bay, and Chinatown thanks to the efficient public transportation system. 
+                   Additionally, savoring affordable and delicious street food at bustling hawker centers is
+                    a highlight. Whether you're drawn to the sights, local flavors, or the vibrant nightlife,
+                     Singapore provides a welcoming and communal environment for your adventures.
+            </p>
+            <div style="display: flex; align-items: center; width: 100%;">
+                <h1 class="font2">WHAT IT IS FAMOUS FOR?</h1>
+                <div class="arrow-container">
+                    <button class="arrow" onclick="slide('left')">&lt;</button>
+                    <button class="arrow" onclick="slide('right')">&gt;</button>
+                </div>
+            </div>
+            <div class="slider-wrapper">
+                <div class="slider" id="famous-slider">
+                    <div class="small-div"><img src="{{url_for('static',filename='images/singapore 1.jpg')}}" alt="Hostel Image"></div>
+                    <div class="small-div"><img src="{{url_for('static',filename='images/singapore 2.jpg')}}" alt="Hostel Image"></div>
+                    <div class="small-div"><img src="{{url_for('static',filename='images/singapore 3.jpg')}}" alt="Hostel Image"></div>
+                    <div class="small-div"><img src="{{url_for('static',filename='images/singapore 4.jpg')}}" alt="Hostel Image"></div>
+                    <div class="small-div"><img src="{{url_for('static',filename='images/singapore 5.jpg')}}" alt="Hostel Image"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="itinerary">
+        <h1 class="font2">ITINERARY</h1>
+        <div style="display: flex; align-items: center; width: 100%;">
+            <h3>How to spend a day in Singapore</h3>
+            <div class="arrow-container">
+                <button class="arrow" onclick="slideDay('left')">&lt;</button>
+                <button class="arrow" onclick="slideDay('right')">&gt;</button>
+            </div>
+        </div>
+        <div class="slider-wrapper">
+            <div class="slider" id="day-slider">
+                <div class="day-div"><span class="timings">- - - - ( 7:00 AM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/singapore day1.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Breakfast at the Hostel</b>
+                    Start your day with a hearty breakfast at your hostel. Many hostels offer complimentary breakfast, so take advantage of it to fuel up for the day ahead.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 8:00 AM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/singapore day2.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Visit Gardens by the Bay</b>Head to Gardens
+                     by the Bay, a beautiful park with iconic Supertree structures and themed gardens. You can explore the Cloud Forest, Flower Dome, and take a walk around the outdoor gardens.</span>
+                </div>
+                <div class="day-div"><span class="timings">- - - - ( 10:00 AM ) - - - -</span><div class="pink-div"><img src="{{url_for('static',filename='images/singapore day3.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Explore Marina Bay Sands </b>Make your way to Marina
+                     Bay Sands, one of Singapore's most famous landmarks. You can visit the ArtScience Museum, take a stroll along the Marina Bay Sands Promenade, or simply enjoy the stunning views 
+                     of the city skyline.
+                </span></div>
+                <div class="day-div"><span class="timings">- - - - ( 1:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/singapore day4.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Lunch</b>For lunch, visit a nearby hawker center to 
+                    experience authentic Singaporean street food. Try local favorites like chicken rice, laksa, or satay. Some popular hawker centers include Lau Pa Sat and Newton Food Centre.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 2:30 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/singapore day5.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Visit Chinatown</b>
+                    Head to Chinatown to explore the vibrant streets, traditional shops, and historical landmarks. Don't miss the Buddha Tooth Relic Temple, Thian Hock Keng Temple, and the colorful shophouses. </span></div>
+                <div class="day-div"><span class="timings">- - - - ( 4:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/singapore day6.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Walk around Clarke Quay</b>
+                    Take a leisurely walk along Clarke Quay, a riverside entertainment hub with plenty of bars, restaurants, and shops. You can enjoy the scenic views of the Singapore River and maybe even catch a boat ride.
+                   </span></div>
+                <div class="day-div"><span class="timings">- - - - ( 6:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/singapore day7.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Dinner </b>For dinner, choose a local restaurant that offers a
+                     variety of cuisines. You can try dishes like Hainanese chicken rice, chili crab, or dim sum. Some popular dining spots include Maxwell Food Centre and Lau Pa Sat.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 9:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/singapore day8.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Night Safari</b>End your day with a visit to the Night Safari, where you can see 
+                    nocturnal animals in their natural habitats, or head to the Marina Bay Sands Observation Deck for a stunning nighttime view of the city.</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="hostel-container">
+        <div class="hostel-image">
+            <img src="{{url_for('static',filename='images/tokyo.webp')}}" alt="Hostel Image">
+            <div class="tag">Paragliding Heaven</div>
+</div>
+<div class="hostel-details">
+    <h2>The Hostemate Singapore</h2>
+    <p>
+        Located in the vibrant heart of Chinatown, just a short stroll from iconic landmarks,
+         bustling markets, and delightful eateries, this hostel offers cozy dormitories, private rooms, 
+         complimentary Wi-Fi, a rooftop lounge, and a refreshing outdoor pool. It's the perfect base to 
+         explore the city's rich culture and lively atmosphere.
+    </p>
+    <div class="icons">
+        <img src="https://img.icons8.com/ios-filled/50/000000/coffee.png" alt="Coffee">
+        <img src="https://img.icons8.com/ios-filled/50/000000/bed.png" alt="Bed">
+        <img src="https://img.icons8.com/ios-filled/50/000000/wifi.png" alt="Wi-Fi">
+        <img src="https://img.icons8.com/ios-filled/50/000000/swimming.png" alt="Pool">
+    </div>
+    <p class="price">Starting @ <span>₹462</span>/night</p>
+    <button class="book-btn">Book Now</button>
+</div>
+</div>
+    
+<script src="{{ url_for('static',filename='JavaScript/city.js') }}"></script>
+</body>
+</html>

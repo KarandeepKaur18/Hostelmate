@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rishikesh</title>
+    <link rel="stylesheet" href="static/css/city.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image">
+            <img src="{{url_for('static',filename='images/rishikesh.webp')}}" alt="Hostel Image">
+        </div>
+        <div class="text">
+            <h1 class="font">RISHIKESH</h1>
+            <p>
+                Rishikesh, known as the "Yoga Capital of the World," is a 
+                serene destination for hostel travelers seeking spirituality 
+                and adventure. Hostels in Rishikesh offer affordable stays close 
+                to the Ganges River, ashrams, and yoga centers, fostering a social
+                 atmosphere where travelers can connect and share their spiritual 
+                 journeys. Enjoy activities like white-water rafting, meditation, and 
+                 exploring the scenic beauty of the Himalayas, all while staying in a 
+                 friendly and communal environment.
+            </p>
+            <div style="display: flex; align-items: center; width: 100%;">
+                <h1 class="font2">WHAT IT IS FAMOUS FOR?</h1>
+                <div class="arrow-container">
+                    <button class="arrow" onclick="slide('left')">&lt;</button>
+                    <button class="arrow" onclick="slide('right')">&gt;</button>
+                </div>
+            </div>
+            <div class="slider-wrapper">
+                <div class="slider" id="famous-slider">
+                    <div class="small-div"> <img src="{{url_for('static',filename='images/rishikesh 1.webp')}}" alt="Hostel Image"></div>
+                    <div class="small-div"> <img src="{{url_for('static',filename='images/rishikesh 2.webp')}}" alt="Hostel Image"></div>
+                    <div class="small-div"> <img src="{{url_for('static',filename='images/rishikesh 3.webp')}}" alt="Hostel Image"></div>
+                    <div class="small-div"> <img src="{{url_for('static',filename='images/rishikesh 4.webp')}}" alt="Hostel Image"></div>
+                    <div class="small-div"> <img src="{{url_for('static',filename='images/rishikesh 5.webp')}}" alt="Hostel Image"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="itinerary">
+        <h1 class="font2">ITINERARY</h1>
+        <div style="display: flex; align-items: center; width: 100%;">
+            <h3>How to spend a day in Rishikesh</h3>
+            <div class="arrow-container">
+                <button class="arrow" onclick="slideDay('left')">&lt;</button>
+                <button class="arrow" onclick="slideDay('right')">&gt;</button>
+            </div>
+        </div>
+        <div class="slider-wrapper">
+            <div class="slider" id="day-slider">
+                <div class="day-div"><span class="timings">- - - - ( 7:00 AM ) - - - - </span><div class="pink-div"> <img src="{{url_for('static',filename='images/rishikesh day1.webp')}}" alt="Hostel Image"></div><span class="time"><b>Breakfast at the Hostel</b>
+                    Start your day with a hearty breakfast at your hostel. Many hostels offer a variety of options to kickstart your day.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 8:00 AM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/rishikesh day2.webp')}}" alt="Hostel Image"></div><span class="time"><b>Visit Lakshman Jhula</b>Head to this iconic suspension bridge early to avoid the crowds. It's a great way to experience the spiritual vibes and enjoy the scenic views of the Ganges River.
+                  </span></div>
+                <div class="day-div"><span class="timings">- - - - ( 10:00 AM ) - - - -</span><div class="pink-div"><img src="{{url_for('static',filename='images/rishikesh day3.webp')}}" alt="Hostel Image"></div><span class="time"><b>Explore Tera Manzil Mandir</b>Just a short walk from Lakshman Jhula, this 13-floor temple offers panoramic views of the river and the surrounding hills.
+                    </span></div>
+                <div class="day-div"><span class="timings">- - - - ( 1:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/rishikesh day4.webp')}}" alt="Hostel Image"></div><span class="time"><b>Lunch</b>Try some authentic Indian cuisine at a nearby restaurant. Look for places that offer thali meals for a variety of dishes.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 2:30 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/rishikesh day5.webp')}}" alt="Hostel Image"></div><span class="time"><b>Visit Triveni Ghat</b>
+                    Attend the Ganga Aarti at Triveni Ghat, a spiritual experience where you can witness the evening prayers and rituals.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 4:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/rishikesh day6.webp')}}" alt="Hostel Image"></div><span class="time"><b>Relax at Neer Garh Waterfall</b>
+                    Take a leisurely walk to Neer Garh Waterfall and enjoy the serene beauty of the cascading water. It's a peaceful spot to unwind.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 6:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/rishikesh day7.webp')}}" alt="Hostel Image"></div><span class="time"><b>Shopping at local markets </b>Wander through the bustling markets and pick up some souvenirs, local crafts, or traditional textiles.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 9:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/rishikesh day8.webp')}}" alt="Hostel Image"></div><span class="time"><b>Dinner </b>End your day with a delicious dinner. Many hostels have communal kitchens or dining areas where you can socialize with fellow travelers.</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="hostel-container">
+        <div class="hostel-image">
+            <img src="{{url_for('static',filename='images/rishikesh hostel.webp')}}" alt="Hostel Image">
+            <div class="tag"></div>
+</div>
+<div class="hostel-details">
+    <h2>The Hostemate Rishikesh</h2>
+    <p>
+        Located in the heart of Tokyo, just a short walk from bustling Shibuya Crossing,
+         vibrant Harajuku, and iconic Senso-ji Temple, this hostel offers cozy dormitories,
+          private rooms, complimentary Wi-Fi, a rooftop terrace with stunning views, and an
+           inviting outdoor pool. It's the perfect spot to immerse yourself in Tokyo's dynamic
+            culture and enjoy the city's lively atmosphere.
+    </p>
+    <div class="icons">
+        <img src="https://img.icons8.com/ios-filled/50/000000/coffee.png" alt="Coffee">
+        <img src="https://img.icons8.com/ios-filled/50/000000/bed.png" alt="Bed">
+        <img src="https://img.icons8.com/ios-filled/50/000000/wifi.png" alt="Wi-Fi">
+        <img src="https://img.icons8.com/ios-filled/50/000000/swimming.png" alt="Pool">
+    </div>
+    <p class="price">Starting @ <span>₹462</span>/night</p>
+    <button class="book-btn">Book Now</button>
+</div>
+</div>
+    
+<script src="{{ url_for('static',filename='JavaScript/city.js') }}"></script>
+</body>
+</html>
