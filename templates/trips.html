@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/Landing.css')}}">
+</head>
+<body>
+    <div class="container_desti">
+       <div class="desti_div">
+        <div class="inner_dest"> <img class="desti_img" src="{{ url_for('static',filename='images/kerela.png')}}" , alt="Image of Destination"></div>
+        <div class="inner_dest dest_text"><h1>Experience Kerela</h1></div>
+       </div>
+
+       <div class="desti_div">
+        <div class="inner_dest"> <img class="desti_img"  src="{{ url_for('static',filename='images/spiti.jpg')}}" , alt="Image of Destination"></div>
+        <div class="inner_dest dest_text"><h1>Experience spiti</h1></div>
+       </div>
+
+       <div class="desti_div">
+        <div class="inner_dest"> <img  class="desti_img" src="{{ url_for('static',filename='images/bhutan.jpg')}}" , alt="Image of Destination"></div>
+        <div class="inner_dest dest_text"><h1>Experience Bhutan</h1></div>
+       </div>
+
+
+       <div class="desti_div">
+        <div class="inner_dest"> <img  class="desti_img"  src="{{ url_for('static',filename='images/ap.jpg')}}" , alt="Image of Destination"></div>
+        <div class="inner_dest dest_text"><h1>Experience Arunachal Pradesh </h1></div>
+       </div>
+
+
+       <div class="desti_div">
+        <div class="inner_dest"> <img class="desti_img"  src="{{ url_for('static',filename='images/sikkim.png')}}" , alt="Image of Destination"></div>
+        <div class="inner_dest dest_text"><h1>Experience Sikkim </h1></div>
+       </div>
+
+
+       <div class="desti_div">
+        <div class="inner_dest"> <img class="desti_img" src="{{ url_for('static',filename='images/mysore.png')}}" , alt="Image of Destination"></div>
+        <div class="inner_dest dest_text"><h1>Experience Mysore</h1></div>
+       </div>
+
+    </div>
+
+
+    {% block scripts %}
+    <script src="{{ url_for('static',filename='JavaScript/landing.js') }}"></script>
+    {% endblock %}
+  
+</body>
+</html>

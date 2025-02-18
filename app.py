@@ -105,45 +105,135 @@ def press():
     return render_template('press.html')
 
 
+
+
 blog_data = {
     "backpacking-asia": {
         "title": "Backpackers Guide To South East Asia",
         "image": "images/Southeastasia.webp",
-        "content": """Southeast Asia is a dream destination for backpackers, offering affordable travel, stunning landscapes, and rich cultures. 
-                      From Thailand's vibrant streets to Bali’s serene beaches, this guide will help you navigate the best spots.""",
+        "content": """
+        Southeast Asia is a dream destination for backpackers, offering affordable travel, stunning landscapes, and rich cultures. 
+        From Thailand's vibrant streets to Bali’s serene beaches, this guide will help you navigate the best spots.
+
+        **Best Time to Visit:**
+        - Dry Season (Nov - April): Best weather, great for beaches and outdoor activities.
+        - Rainy Season (May - Oct): Fewer tourists and lower prices, but occasional heavy rains.
+
+        **Budget:**
+        - Daily Budget: $20 - $50 (depends on country and travel style)
+        - Accommodation: $5-$15 for hostels, $20+ for budget hotels
+        - Food: $2-$5 for street food, $10+ for restaurants
+        - Transport: Buses, trains, and budget airlines offer affordable options.
+
+        **Top Destinations:** Thailand, Vietnam, Cambodia, Laos, Malaysia, Indonesia.
+
+        **Tips:** Eat local, use overnight buses, and negotiate prices where possible.
+        """,
     },
     "backpacking-laos": {
         "title": "How To Backpack Around Laos",
         "image": "images/Laos.jpg",
-        "content": """Laos is a hidden gem in Southeast Asia, known for its breathtaking nature, friendly locals, and budget-friendly travel experiences. 
-                      From Luang Prabang's temples to Vang Vieng's adventure sports, here’s what you need to know before you go.""",
+        "content": """
+        Laos is a hidden gem in Southeast Asia, known for its breathtaking nature, friendly locals, and budget-friendly travel experiences. 
+        From Luang Prabang's temples to Vang Vieng's adventure sports, here’s what you need to know before you go.
+
+        **Best Time to Visit:**
+        - Dry Season (Nov - April): Pleasant weather, best for trekking and sightseeing.
+        - Rainy Season (May - Oct): Lush landscapes, but some remote areas may be hard to access.
+
+        **Budget:**
+        - Daily Budget: $15 - $40
+        - Accommodation: $5-$10 for hostels, $15+ for guesthouses
+        - Food: $2-$5 for street food, $8+ for local restaurants
+        - Transport: Tuk-tuks, motorbike rentals, and buses.
+
+        **Top Destinations:** Luang Prabang, Vang Vieng, Vientiane, 4000 Islands.
+
+        **Tips:** Rent a motorbike for rural areas, respect local customs, and try Laotian coffee.
+        """,
     },
     "backpacking-vietnam": {
         "title": "Backpacker's Guide To Travel Around Vietnam",
-        "image": "images/veitnam.jpg",
-        "content": """Vietnam offers a mix of history, nature, and delicious cuisine. Whether you’re exploring the bustling streets of Hanoi, 
-                      cruising in Halong Bay, or trekking in Sapa, this guide will help you make the most of your journey.""",
+        "image": "images/veit.jpg",
+        "content": """
+        Vietnam offers a mix of history, nature, and delicious cuisine. Whether you’re exploring the bustling streets of Hanoi, 
+        cruising in Halong Bay, or trekking in Sapa, this guide will help you make the most of your journey.
+
+        **Best Time to Visit:**
+        - North (Oct - April): Cool and dry, best for Hanoi, Sapa, and Halong Bay.
+        - South (Nov - April): Dry season, great for Ho Chi Minh City and Mekong Delta.
+        - Central (Feb - Aug): Best time for Hoi An, Da Nang, and Hue.
+
+        **Budget:**
+        - Daily Budget: $20 - $50
+        - Accommodation: $5-$12 for hostels, $20+ for budget hotels
+        - Food: $1.50-$5 for street food, $10+ for restaurants
+        - Transport: Affordable trains, buses, and motorbike rentals.
+
+        **Top Destinations:** Hanoi, Halong Bay, Hoi An, Ho Chi Minh City, Sapa.
+
+        **Tips:** Try street food, use sleeper buses, and haggle at local markets.
+        """,
     },
     "backpacking-europe": {
         "title": "Complete Guide To Backpacking Europe",
         "image": "images/Europe.jpg",
-        "content": """Backpacking through Europe is an adventure of a lifetime. With a Eurail pass, budget hostels, and incredible history, 
-                      you can explore diverse cultures from Western to Eastern Europe.""",
+        "content": """
+        Backpacking through Europe is an adventure of a lifetime. With a Eurail pass, budget hostels, and incredible history, 
+        you can explore diverse cultures from Western to Eastern Europe.
+
+        **Best Time to Visit:**
+        - Summer (June - August): Warm weather, lively atmosphere, but higher prices.
+        - Shoulder Seasons (April - May, September - October): Fewer crowds and better prices.
+
+        **Budget:**
+        - Daily Budget: $40 - $100
+        - Accommodation: $15-$40 for hostels, $50+ for budget hotels
+        - Food: $5-$15 for budget meals, $20+ for dining out
+        - Transport: Eurail passes, budget flights, and buses.
+
+        **Top Destinations:** Paris, Rome, Amsterdam, Prague, Barcelona.
+
+        **Tips:** Use budget airlines, book train passes in advance, and explore free attractions.
+        """,
     },
     "interrail-destinations": {
         "title": "This Year's Best Interrail Destinations",
-        "image": "images/iterrail.jpg",
-        "content": """Interrailing across Europe is one of the best ways to explore multiple countries affordably. 
-                      Here’s a list of the best destinations to include in your trip this year.""",
+        "image": "images/itterail.jpg",
+        "content": """
+        Interrailing across Europe is one of the best ways to explore multiple countries affordably. 
+        Here’s a list of the best destinations to include in your trip this year.
+
+        **Best Time to Travel:**
+        - Spring & Summer (April - September): Best weather and longer daylight hours.
+
+        **Top Destinations:** Paris, Berlin, Prague, Budapest, Vienna.
+
+        **Tips:** Book train passes in advance, travel off-peak for savings, and stay in budget hostels.
+        """,
     },
     "solo-travel-spain": {
         "title": "Solo Travel In Spain",
         "image": "images/Spain.jpg",
-        "content": """Spain is a fantastic destination for solo travelers, offering rich culture, great food, and friendly locals. 
-                      From Barcelona’s vibrant streets to Andalusia’s scenic landscapes, here’s how to travel solo in Spain.""",
+        "content": """
+        Spain is a fantastic destination for solo travelers, offering rich culture, great food, and friendly locals. 
+        From Barcelona’s vibrant streets to Andalusia’s scenic landscapes, here’s how to travel solo in Spain.
+
+        **Best Time to Visit:**
+        - Spring & Fall (March - May, September - November): Best weather and fewer crowds.
+
+        **Budget:**
+        - Daily Budget: $50 - $100
+        - Accommodation: $20-$50 for hostels, $60+ for budget hotels
+        - Food: $10-$20 for tapas, $30+ for dining out
+        - Transport: Trains, buses, and budget airlines.
+
+        **Top Destinations:** Barcelona, Madrid, Seville, Valencia, Granada.
+
+        **Tips:** Learn basic Spanish phrases, eat at local tapas bars, and take free walking tours.
+        """,
     },
 }
-
 
 @app.route('/travel')
 def travel_page():
@@ -171,6 +261,9 @@ class TermsAcceptance(db.Model):
 def terms():
     return render_template('terms.html')
 
+@app.route('/destination')
+def desti():
+    return render_template('destination.html')
 
 
 @app.route('/career')

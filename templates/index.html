@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-<<<<<<< Updated upstream
+<!-- <<<<<<< Updated upstream -->
 {% block styles %}
     <link rel="stylesheet" href="{{url_for('static',filename='CSS/Landing.css')}}">
 
@@ -24,6 +24,9 @@
 
                 <div class="carousel-search">
                     <input type="text" class="form-control" placeholder="Enter city ">
+                    <input type="text" class="form-control" placeholder="Check in ">
+                    <input type="text" class="form-control" placeholder="Check out">
+                    <input type="text" class="form-control" placeholder="Guests">
                     <button class="btn btn-primary">Search</button>
                 </div>
 
@@ -61,6 +64,12 @@
         </div>
 
 
+
+        <div class=" Container_destination">
+            
+        </div>
+
+
     {% block scripts %}
        <script src="{{ url_for('static',filename='JavaScript/landing.js') }}"></script>
     {% endblock %}
@@ -70,4 +79,4 @@
     
 
 {% endblock  %}
-=======
+
