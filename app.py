@@ -1,40 +1,92 @@
-from flask import Flask,render_template,redirect,url_for, flash,request
+from flask import Flask,render_template,redirect,url_for, flash,request , session 
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import os
+from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
+from flask_bcrypt import Bcrypt
+import hashlib
+import re
 
-app=Flask(__name__)
+basedir = os.path.abspath(os.path.dirname(__file__))
+app = Flask(__name__)
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(basedir, "app.db")
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config['SECRET_KEY'] = 'your_secret_key'
+UPLOAD_FOLDER = 'static/images'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif'}
+
+# Ensure the upload folder exists
+if not os.path.exists(UPLOAD_FOLDER):
+    os.makedirs(UPLOAD_FOLDER)
+
+db = SQLAlchemy(app)
+
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = "login"  # Redirect to login page if not authenticated
+
+
+# User Model
+class User(db.Model, UserMixin):
+    __tablename__ = "user"
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), unique=True, nullable=False)
+    mobile = db.Column(db.String(15), nullable=False)
+    password = db.Column(db.String(200), nullable=False)
+    profile_picture = db.Column(db.String(100), nullable=True)  # Profile picture column
+
+with app.app_context():
+    db.create_all()
+# Flask-Login: Load user from session
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+
+# Function to check strong password
+def is_strong_password(password):
+    return (
+        len(password) >= 8 and
+        re.search(r'[A-Z]', password) and
+        re.search(r'[a-z]', password) and
+        re.search(r'\d', password) and
+        re.search(r'[!@#$%^&*]', password)
+    )
+
+
+# Function to hash password using hashlib
+def hash_password(password):
+    return hashlib.sha256(password.encode()).hexdigest()
+
+# Function to check allowed file extensions
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
+
+
+
+class Cart(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    book_id = db.Column(db.Integer, nullable=False)
+    book_name = db.Column(db.String(100), nullable=False)
+    book_price = db.Column(db.Float, nullable=False)
+    quantity = db.Column(db.Integer, default=1)
+
+
+
+class Contact(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(120), nullable=False)
+    message = db.Column(db.Text, nullable=False)
 
 @app.route("/")
 def home():
     return render_template("index.html")
 
-@app.route("/student")
-def student_sign_up():
-    return render_template("student_sign_up.html")
-
-@app.route("/admin")
-def admin_sign_up():
-    return render_template("admin_sign_up.html")
-
-@app.route("/staff")
-def staff_sign_up():
-    return render_template("staff_sign_up.html")
-
-@app.route("/login")
-def login():
-    return render_template("login.html")
-
-@app.route("/forgot_password")
-def forgot_password():
-    return render_template("forgot_password.html")
-
-@app.route("/change_password")
-def change_password():
-    return render_template("change_password.html")
-
-@app.route("/signup")
-def signup():
-    return render_template("signup.html")
 
 @app.route("/about")
 def about():
@@ -107,7 +159,7 @@ def blog_page(blog_id):
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///hostel.db'
-db = SQLAlchemy(app)
+# db = SQLAlchemy(app)
 
 class TermsAcceptance(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -130,6 +182,150 @@ def career():
     ]
     return render_template('career.html', jobs=jobs)
 
+
+# Register Route
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        email = request.form.get('email')
+        mobile = request.form.get('mobile')
+        password = request.form.get('password')
+        confirm_password = request.form.get('confirm_password')
+
+        # Check if fields are empty
+        if not all([name, email, mobile, password, confirm_password]):
+            flash("⚠ All fields are required!", "warning")
+            return redirect(url_for('signup'))
+
+        # Check if passwords match
+        if password != confirm_password:
+            flash("❌ Passwords do not match!", "danger")
+            return redirect(url_for('signup'))
+
+        # Validate strong password
+        if not is_strong_password(password):
+            flash("⚠ Password must be at least 8 characters, include an uppercase, lowercase, number, and special character (!@#$%^&*).", "warning")
+            return redirect(url_for('signup'))
+
+        # Check if user already exists
+        existing_user = User.query.filter_by(email=email).first()
+        if existing_user:
+            flash("📧 Email already registered. Please login!", "warning")
+            return redirect(url_for('login'))
+  # Hash password and save user
+        hashed_password = hash_password(password)
+        new_user = User(name=name, email=email, mobile=mobile, password=hashed_password)
+
+        try:
+            db.session.add(new_user)
+            db.session.commit()
+            flash("✅ Registration successful! Please login.", "success")
+            return redirect(url_for('login'))
+        except Exception as e:
+            db.session.rollback()
+            flash(f"❌ Database Error: {str(e)}", "danger")
+            return redirect(url_for('signup'))
+
+    return render_template('sign_up.html')
+
+# Login Route
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+
+        user = User.query.filter_by(email=email).first()
+
+        if user and user.password == hash_password(password):
+            login_user(user)  # Log in the user
+            flash("✅ Login successful!", "success")
+            return redirect(url_for('dashboard'))  # Redirect to dashboard
+        else:
+            flash("❌ Invalid email or password. Try again!", "danger")
+            return redirect(url_for('login'))
+
+    return render_template('login.html')
+
+# Dashboard Route (Protected)
+@app.route('/dashboard')
+@login_required
+def dashboard():
+    return render_template('dashboard.html')
+
+# Logout Route
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash("✅ Logged out successfully!", "info")
+    return redirect(url_for('login'))
+
+# Profile Route (Protected)
+@app.route("/profile", methods=['GET', 'POST'])
+@login_required
+def profile():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        email = request.form.get('email')
+        mobile = request.form.get('mobile')
+
+        if not all([name, email, mobile]):
+            flash("⚠ All fields are required!", "warning")
+            return redirect(url_for('profile'))
+
+ # Handle profile picture upload
+        if 'profile_picture' in request.files:
+            file = request.files['profile_picture']
+            if file and allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                file.save(file_path)
+
+                # Update user's profile picture in the database
+                current_user.profile_picture = filename
+                db.session.commit()  # Commit change
+
+        # Update user details
+        current_user.name = name
+        current_user.email = email
+        current_user.mobile = mobile
+        db.session.commit()
+
+        flash("✅ Profile updated successfully!", "success")
+
+    return render_template("profile.html", user=current_user)
+# Edit Profile Route (Protected)
+@app.route("/edit_profile", methods=['GET', 'POST'])
+@login_required
+def edit_profile():
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        mobile = request.form['mobile']
+
+        # Handle profile picture upload
+        if 'profile_picture' in request.files:
+            file = request.files['profile_picture']
+            if file and allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                file.save(file_path)
+
+                current_user.profile_picture = filename  # Save filename to the user
+                db.session.commit()  # Commit changes
+
+        # Update user details
+        current_user.name = name
+        current_user.email = email
+        current_user.mobile = mobile
+        db.session.commit()
+
+        flash("✅ Profile updated successfully!", "success")
+        return redirect(url_for('profile'))  # Redirect back to profile page
+
+    return render_template("edit_profile.html", user=current_user)
 
 
 if __name__ == '__main__':

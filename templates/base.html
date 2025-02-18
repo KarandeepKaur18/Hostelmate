@@ -82,18 +82,15 @@
 
                     <li class="nav-item">
                         <li class="nav-item dropdown">
-                            <a class="nav-link btn-signin dropdown-toggle" href="#" id="signinDropdown" role="button" data-bs-toggle="dropdown">
+                            <a class="nav-link btn-signin " href="{{url_for('login')}}" id="signinDropdown" role="button" >
                                 Sign In
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{url_for('login')}}">Sign in with Google</a></li>
-                                <li><a class="dropdown-item" href="#">Sign in with Facebook</a></li>
-                                <li><a class="dropdown-item" href="#">Sign in with Email</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Create an Account</a></li>
-                            </ul>
                         </li>
                         
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link btn-signin" href="{{url_for('dashboard')}}"><i class="bi bi-envelope"></i> Dashboard </a>
                     </li>
                 </ul>
 
