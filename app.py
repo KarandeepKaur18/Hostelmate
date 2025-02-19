@@ -1,4 +1,4 @@
-from flask import Flask,render_template,redirect,url_for, flash,request , session 
+from flask import Flask,render_template,redirect,url_for, flash,request , session
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask_migrate import Migrate
@@ -540,17 +540,7 @@ def profile():
             flash("⚠ All fields are required!", "warning")
             return redirect(url_for('profile'))
 
- # Handle profile picture upload
-        if 'profile_picture' in request.files:
-            file = request.files['profile_picture']
-            if file and allowed_file(file.filename):
-                filename = secure_filename(file.filename)
-                file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-                file.save(file_path)
-
-                # Update user's profile picture in the database
-                current_user.profile_picture = filename
-                db.session.commit()  # Commit change
+        db.session.commit()  # Commit change
 
         # Update user details
         current_user.name = name
@@ -570,16 +560,8 @@ def edit_profile():
         email = request.form['email']
         mobile = request.form['mobile']
 
-        # Handle profile picture upload
-        if 'profile_picture' in request.files:
-            file = request.files['profile_picture']
-            if file and allowed_file(file.filename):
-                filename = secure_filename(file.filename)
-                file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-                file.save(file_path)
 
-                current_user.profile_picture = filename  # Save filename to the user
-                db.session.commit()  # Commit changes
+        db.session.commit()  # Commit changes
 
         # Update user details
         current_user.name = name
