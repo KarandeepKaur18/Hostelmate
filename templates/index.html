@@ -34,9 +34,9 @@
                             <option value="{{ city.id }}">{{ city.city }}</option>
                         {% endfor %}
                     </select>
-                    <input type="date" class="form-control" placeholder="Check in" name="checkin" required>
-                    <input type="date" class="form-control" placeholder="Check out" name="checkout" required>
-                    <input type="number" class="form-control" placeholder="Guests" name="guests" required>
+                    <input type="date" class="form-control" placeholder="Check in" name="checkin" id="checkin" required>
+                    <input type="date" class="form-control" placeholder="Check out" name="checkout" id="checkout" required>
+                    <input type="number" class="form-control" placeholder="Guests" name="guests"  min="0" required>
                     <button type="submit" class="btn btn-primary">Search</button>
                 </div>
             </form>
@@ -503,16 +503,24 @@
                         
                         <h3>Karandeep Kaur</h3>
                         <p>BE CSE AI at Chitkara University</p>
+                        <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#sent/KtbxLwgZbQrClqqZhGwJzNkkPCkSxHMPmg">
+                        <button type="submit">Send Mail</button>
+                        </a>
+
                     </div>
                     <div class="team-member">
                         
                         <h3>Janvhi Dawra</h3>
                         <p>BE CSE AI at Chitkara University</p>
+
                     </div>
                     <div class="team-member">
                         
                         <h3>Mehak Sachdeva</h3>
                         <p>BE CSE AI at Chitkara University</p>
+                        <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#sent/KtbxLwgZbQrClqqZhGwJzNkkPCkSxHMPmg">
+                            <button type="submit">Send Mail</button>
+                        </a>
                     </div>
                     <div class="team-member">
                       

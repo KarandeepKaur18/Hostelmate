@@ -44,19 +44,19 @@
                                 <div class="container text-center">
                                     <div class="row g-2">  <!-- g-2 adds spacing between items -->
                                         <!-- First Row -->
-                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="#">Option 1</a></div>
-                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="#">Option 2</a></div>
-                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="#">Option 3</a></div>
+                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="{{ url_for('bali')}}">Bali</a></div>
+                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="{{ url_for('barcelona')}}">Barcelona</a></div>
+                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="{{ url_for('goa')}}">Goa</a></div>
                         
                                         <!-- Second Row -->
-                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="#">Option 4</a></div>
-                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="#">Option 5</a></div>
-                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="#">Option 6</a></div>
+
+                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="{{ url_for('singapur')}}">Singapore</a></div>
+                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="{{ url_for('manali')}}">Manali</a></div>
                         
                                         <!-- Third Row -->
-                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="#">Option 7</a></div>
-                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="#">Option 8</a></div>
-                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="#">Option 9</a></div>
+                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="{{ url_for('paris')}}">Paris</a></div>
+                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="{{ url_for('tokyo')}}">Tokyo</a></div>
+                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="{{ url_for('rishikesh')}}">Rishikesh</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -82,18 +82,15 @@
 
                     <li class="nav-item">
                         <li class="nav-item dropdown">
-                            <a class="nav-link btn-signin dropdown-toggle" href="#" id="signinDropdown" role="button" data-bs-toggle="dropdown">
+                            <a class="nav-link btn-signin " href="{{url_for('login')}}" id="signinDropdown" role="button" >
                                 Sign In
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{url_for('login')}}">Sign in with Google</a></li>
-                                <li><a class="dropdown-item" href="#">Sign in with Facebook</a></li>
-                                <li><a class="dropdown-item" href="#">Sign in with Email</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Create an Account</a></li>
-                            </ul>
                         </li>
                         
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link btn-signin" href="{{url_for('dashboard')}}"><i class="bi bi-envelope"></i> Dashboard </a>
                     </li>
                 </ul>
 

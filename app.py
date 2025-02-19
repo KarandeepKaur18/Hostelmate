@@ -1,22 +1,37 @@
-from flask import Flask,render_template,redirect,url_for, flash,request
+from flask import Flask,render_template,redirect,url_for, flash,request , session 
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask_migrate import Migrate
 import os
 from datetime import date
+from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
+from flask_bcrypt import Bcrypt
+import hashlib
+import re
+
 app=Flask(__name__) 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(basedir, "app.db")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config['SECRET_KEY'] = 'your_secret_key'
+UPLOAD_FOLDER = 'static/images'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif'}
+
+if not os.path.exists(UPLOAD_FOLDER):
+    os.makedirs(UPLOAD_FOLDER)
 
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = "login"
+
 # Database model
-
-
 
 class City(db.Model):
     id  = db.Column(db.Integer, primary_key=True)
@@ -69,10 +84,10 @@ with app.app_context():
                     title="Welcome to Spiti", image="images/spiti.jpg", image2="images/hostel3.avif",
                     description="Relax on the beaches of Goa and experience its vibrant nightlife."),
             City(city="Bhutan", checkin="2025-04-01", checkout="2025-04-10", guests=4,
-                    title="Welcome to Bhutan", image="images/bhutan.jpg", image2="images/interrail-thumb-jpg",
+                    title="Welcome to Bhutan", image="images/bhutan.jpg", image2="images/mumbai_host.webp",
                     description="Relax on the beaches of Goa and experience its vibrant nightlife."),
             City(city="Arunanchal Pradesh", checkin="2025-04-01", checkout="2025-04-10", guests=4,
-                    title="Welcome to Arunanchal Pradesh", image="images/ap.jpg", image2="images/hostel1.jpg",
+                    title="Welcome to Arunanchal Pradesh", image="images/ap.jpg", image2="images/delhi_host.webp",
                     description="Relax on the beaches of Goa and experience its vibrant nightlife."),
             City(city="Sikkim", checkin="2025-04-01", checkout="2025-04-10", guests=4,
                     title="Welcome to Sikkim", image="images/sikkim.png", image2="images/hostel2.jpg",
@@ -84,7 +99,7 @@ with app.app_context():
                     title="Welcome to Kolkata", image="images/kolkata.jpeg", image2="images/HOSTEL4.jpg",
                     description="Relax on the beaches of Goa and experience its vibrant nightlife."),
             City(city="Chennai", checkin="2025-04-01", checkout="2025-04-10", guests=4,
-                    title="Welcome to Chennai", image="images/chennai.jpeg", image2="images/hostel.jpg",
+                    title="Welcome to Chennai", image="images/chennai.jpeg", image2="images/delhi_host.webp",
                     description="Relax on the beaches of Goa and experience its vibrant nightlife."),
             City(city="Banglore", checkin="2025-04-01", checkout="2025-04-10", guests=4,
                     title="Welcome to Banglore", image="images/banglore.jpeg", image2="images/HOSTEL4.jpg",
@@ -104,6 +119,50 @@ with app.app_context():
 
 
 
+# User Model
+class User(db.Model, UserMixin):
+    __tablename__ = "user"
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), unique=True, nullable=False)
+    mobile = db.Column(db.String(15), nullable=False)
+    password = db.Column(db.String(200), nullable=False)
+    profile_picture = db.Column(db.String(100), nullable=True)  # Profile picture column
+
+with app.app_context():
+    db.create_all()
+# Flask-Login: Load user from session
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+
+# Function to check strong password
+def is_strong_password(password):
+    return (
+        len(password) >= 8 and
+        re.search(r'[A-Z]', password) and
+        re.search(r'[a-z]', password) and
+        re.search(r'\d', password) and
+        re.search(r'[!@#$%^&*]', password)
+    )
+
+
+# Function to hash password using hashlib
+def hash_password(password):
+    return hashlib.sha256(password.encode()).hexdigest()
+
+# Function to check allowed file extensions
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
+
+
+class Contact(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(120), nullable=False)
+    message = db.Column(db.Text, nullable=False)
 
 @app.route("/")
 def home():
@@ -170,33 +229,6 @@ def connect():
     return render_template("connect.html")
 
 
-@app.route("/student")
-def student_sign_up():
-    return render_template("student_sign_up.html")
-
-@app.route("/admin")
-def admin_sign_up():
-    return render_template("admin_sign_up.html")
-
-@app.route("/staff")
-def staff_sign_up():
-    return render_template("staff_sign_up.html")
-
-@app.route("/login")
-def login():
-    return render_template("login.html")
-
-@app.route("/forgot_password")
-def forgot_password():
-    return render_template("forgot_password.html")
-
-@app.route("/change_password")
-def change_password():
-    return render_template("change_password.html")
-
-@app.route("/signup")
-def signup():
-    return render_template("signup.html")
 
 @app.route("/about")
 def about():
@@ -215,45 +247,135 @@ def press():
     return render_template('press.html')
 
 
+
+
 blog_data = {
     "backpacking-asia": {
         "title": "Backpackers Guide To South East Asia",
         "image": "images/Southeastasia.webp",
-        "content": """Southeast Asia is a dream destination for backpackers, offering affordable travel, stunning landscapes, and rich cultures. 
-                      From Thailand's vibrant streets to Bali’s serene beaches, this guide will help you navigate the best spots.""",
+        "content": """
+        Southeast Asia is a dream destination for backpackers, offering affordable travel, stunning landscapes, and rich cultures. 
+        From Thailand's vibrant streets to Bali’s serene beaches, this guide will help you navigate the best spots.
+
+        **Best Time to Visit:**
+        - Dry Season (Nov - April): Best weather, great for beaches and outdoor activities.
+        - Rainy Season (May - Oct): Fewer tourists and lower prices, but occasional heavy rains.
+
+        **Budget:**
+        - Daily Budget: $20 - $50 (depends on country and travel style)
+        - Accommodation: $5-$15 for hostels, $20+ for budget hotels
+        - Food: $2-$5 for street food, $10+ for restaurants
+        - Transport: Buses, trains, and budget airlines offer affordable options.
+
+        **Top Destinations:** Thailand, Vietnam, Cambodia, Laos, Malaysia, Indonesia.
+
+        **Tips:** Eat local, use overnight buses, and negotiate prices where possible.
+        """,
     },
     "backpacking-laos": {
         "title": "How To Backpack Around Laos",
         "image": "images/Laos.jpg",
-        "content": """Laos is a hidden gem in Southeast Asia, known for its breathtaking nature, friendly locals, and budget-friendly travel experiences. 
-                      From Luang Prabang's temples to Vang Vieng's adventure sports, here’s what you need to know before you go.""",
+        "content": """
+        Laos is a hidden gem in Southeast Asia, known for its breathtaking nature, friendly locals, and budget-friendly travel experiences. 
+        From Luang Prabang's temples to Vang Vieng's adventure sports, here’s what you need to know before you go.
+
+        **Best Time to Visit:**
+        - Dry Season (Nov - April): Pleasant weather, best for trekking and sightseeing.
+        - Rainy Season (May - Oct): Lush landscapes, but some remote areas may be hard to access.
+
+        **Budget:**
+        - Daily Budget: $15 - $40
+        - Accommodation: $5-$10 for hostels, $15+ for guesthouses
+        - Food: $2-$5 for street food, $8+ for local restaurants
+        - Transport: Tuk-tuks, motorbike rentals, and buses.
+
+        **Top Destinations:** Luang Prabang, Vang Vieng, Vientiane, 4000 Islands.
+
+        **Tips:** Rent a motorbike for rural areas, respect local customs, and try Laotian coffee.
+        """,
     },
     "backpacking-vietnam": {
         "title": "Backpacker's Guide To Travel Around Vietnam",
-        "image": "images/veitnam.jpg",
-        "content": """Vietnam offers a mix of history, nature, and delicious cuisine. Whether you’re exploring the bustling streets of Hanoi, 
-                      cruising in Halong Bay, or trekking in Sapa, this guide will help you make the most of your journey.""",
+        "image": "images/veit.jpg",
+        "content": """
+        Vietnam offers a mix of history, nature, and delicious cuisine. Whether you’re exploring the bustling streets of Hanoi, 
+        cruising in Halong Bay, or trekking in Sapa, this guide will help you make the most of your journey.
+
+        **Best Time to Visit:**
+        - North (Oct - April): Cool and dry, best for Hanoi, Sapa, and Halong Bay.
+        - South (Nov - April): Dry season, great for Ho Chi Minh City and Mekong Delta.
+        - Central (Feb - Aug): Best time for Hoi An, Da Nang, and Hue.
+
+        **Budget:**
+        - Daily Budget: $20 - $50
+        - Accommodation: $5-$12 for hostels, $20+ for budget hotels
+        - Food: $1.50-$5 for street food, $10+ for restaurants
+        - Transport: Affordable trains, buses, and motorbike rentals.
+
+        **Top Destinations:** Hanoi, Halong Bay, Hoi An, Ho Chi Minh City, Sapa.
+
+        **Tips:** Try street food, use sleeper buses, and haggle at local markets.
+        """,
     },
     "backpacking-europe": {
         "title": "Complete Guide To Backpacking Europe",
         "image": "images/Europe.jpg",
-        "content": """Backpacking through Europe is an adventure of a lifetime. With a Eurail pass, budget hostels, and incredible history, 
-                      you can explore diverse cultures from Western to Eastern Europe.""",
+        "content": """
+        Backpacking through Europe is an adventure of a lifetime. With a Eurail pass, budget hostels, and incredible history, 
+        you can explore diverse cultures from Western to Eastern Europe.
+
+        **Best Time to Visit:**
+        - Summer (June - August): Warm weather, lively atmosphere, but higher prices.
+        - Shoulder Seasons (April - May, September - October): Fewer crowds and better prices.
+
+        **Budget:**
+        - Daily Budget: $40 - $100
+        - Accommodation: $15-$40 for hostels, $50+ for budget hotels
+        - Food: $5-$15 for budget meals, $20+ for dining out
+        - Transport: Eurail passes, budget flights, and buses.
+
+        **Top Destinations:** Paris, Rome, Amsterdam, Prague, Barcelona.
+
+        **Tips:** Use budget airlines, book train passes in advance, and explore free attractions.
+        """,
     },
     "interrail-destinations": {
         "title": "This Year's Best Interrail Destinations",
-        "image": "images/iterrail.jpg",
-        "content": """Interrailing across Europe is one of the best ways to explore multiple countries affordably. 
-                      Here’s a list of the best destinations to include in your trip this year.""",
+        "image": "images/itterail.jpg",
+        "content": """
+        Interrailing across Europe is one of the best ways to explore multiple countries affordably. 
+        Here’s a list of the best destinations to include in your trip this year.
+
+        **Best Time to Travel:**
+        - Spring & Summer (April - September): Best weather and longer daylight hours.
+
+        **Top Destinations:** Paris, Berlin, Prague, Budapest, Vienna.
+
+        **Tips:** Book train passes in advance, travel off-peak for savings, and stay in budget hostels.
+        """,
     },
     "solo-travel-spain": {
         "title": "Solo Travel In Spain",
         "image": "images/Spain.jpg",
-        "content": """Spain is a fantastic destination for solo travelers, offering rich culture, great food, and friendly locals. 
-                      From Barcelona’s vibrant streets to Andalusia’s scenic landscapes, here’s how to travel solo in Spain.""",
+        "content": """
+        Spain is a fantastic destination for solo travelers, offering rich culture, great food, and friendly locals. 
+        From Barcelona’s vibrant streets to Andalusia’s scenic landscapes, here’s how to travel solo in Spain.
+
+        **Best Time to Visit:**
+        - Spring & Fall (March - May, September - November): Best weather and fewer crowds.
+
+        **Budget:**
+        - Daily Budget: $50 - $100
+        - Accommodation: $20-$50 for hostels, $60+ for budget hotels
+        - Food: $10-$20 for tapas, $30+ for dining out
+        - Transport: Trains, buses, and budget airlines.
+
+        **Top Destinations:** Barcelona, Madrid, Seville, Valencia, Granada.
+
+        **Tips:** Learn basic Spanish phrases, eat at local tapas bars, and take free walking tours.
+        """,
     },
 }
-
 
 @app.route('/travel')
 def travel_page():
@@ -292,6 +414,183 @@ def career():
     ]
     return render_template('career.html', jobs=jobs)
 
+@app.route('/bali')
+def bali():
+    return render_template('bali.html') 
+
+@app.route('/singapur')
+def singapur():
+    return render_template('singapur.html')
+
+@app.route('/barcelona')
+def barcelona():
+    return render_template('barcelona.html')
+
+
+@app.route('/manali')
+def manali():
+    return render_template('manali.html')
+
+@app.route('/paris')
+def paris():
+    return render_template('paris.html')
+
+@app.route('/tokyo')
+def tokyo():
+    return render_template('tokyo.html')
+
+@app.route('/rishikesh')
+def rishikesh():
+    return render_template('rishikesh.html')
+
+@app.route('/goa')
+def goa():
+    return render_template('goa.html')
+
+
+# Register Route
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        email = request.form.get('email')
+        mobile = request.form.get('mobile')
+        password = request.form.get('password')
+        confirm_password = request.form.get('confirm_password')
+
+        # Check if fields are empty
+        if not all([name, email, mobile, password, confirm_password]):
+            flash("⚠ All fields are required!", "warning")
+            return redirect(url_for('signup'))
+
+        # Check if passwords match
+        if password != confirm_password:
+            flash("❌ Passwords do not match!", "danger")
+            return redirect(url_for('signup'))
+
+        # Validate strong password
+        if not is_strong_password(password):
+            flash("⚠ Password must be at least 8 characters, include an uppercase, lowercase, number, and special character (!@#$%^&*).", "warning")
+            return redirect(url_for('signup'))
+
+        # Check if user already exists
+        existing_user = User.query.filter_by(email=email).first()
+        if existing_user:
+            flash("📧 Email already registered. Please login!", "warning")
+            return redirect(url_for('login'))
+  # Hash password and save user
+        hashed_password = hash_password(password)
+        new_user = User(name=name, email=email, mobile=mobile, password=hashed_password)
+
+        try:
+            db.session.add(new_user)
+            db.session.commit()
+            flash("✅ Registration successful! Please login.", "success")
+            return redirect(url_for('login'))
+        except Exception as e:
+            db.session.rollback()
+            flash(f"❌ Database Error: {str(e)}", "danger")
+            return redirect(url_for('signup'))
+
+    return render_template('sign_up.html')
+
+# Login Route
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+
+        user = User.query.filter_by(email=email).first()
+
+        if user and user.password == hash_password(password):
+            login_user(user)  # Log in the user
+            flash("✅ Login successful!", "success")
+            return redirect(url_for('dashboard'))  # Redirect to dashboard
+        else:
+            flash("❌ Invalid email or password. Try again!", "danger")
+            return redirect(url_for('login'))
+
+    return render_template('login.html')
+
+# Dashboard Route (Protected)
+@app.route('/dashboard')
+@login_required
+def dashboard():
+    return render_template('dashboard.html')
+
+# Logout Route
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash("✅ Logged out successfully!", "info")
+    return redirect(url_for('login'))
+
+# Profile Route (Protected)
+@app.route("/profile", methods=['GET', 'POST'])
+@login_required
+def profile():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        email = request.form.get('email')
+        mobile = request.form.get('mobile')
+
+        if not all([name, email, mobile]):
+            flash("⚠ All fields are required!", "warning")
+            return redirect(url_for('profile'))
+
+ # Handle profile picture upload
+        if 'profile_picture' in request.files:
+            file = request.files['profile_picture']
+            if file and allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                file.save(file_path)
+
+                # Update user's profile picture in the database
+                current_user.profile_picture = filename
+                db.session.commit()  # Commit change
+
+        # Update user details
+        current_user.name = name
+        current_user.email = email
+        current_user.mobile = mobile
+        db.session.commit()
+
+        flash("✅ Profile updated successfully!", "success")
+
+    return render_template("profile.html", user=current_user)
+# Edit Profile Route (Protected)
+@app.route("/edit_profile", methods=['GET', 'POST'])
+@login_required
+def edit_profile():
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        mobile = request.form['mobile']
+
+        # Handle profile picture upload
+        if 'profile_picture' in request.files:
+            file = request.files['profile_picture']
+            if file and allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                file.save(file_path)
+
+                current_user.profile_picture = filename  # Save filename to the user
+                db.session.commit()  # Commit changes
+
+        # Update user details
+        current_user.name = name
+        current_user.email = email
+        current_user.mobile = mobile
+        db.session.commit()
+
+        flash("✅ Profile updated successfully!", "success")
+        return redirect(url_for('profile'))  # Redirect back to profile page
+
+    return render_template("edit_profile.html", user=current_user)
 
 desti_data = {
     "Alleppey": {
@@ -452,5 +751,3 @@ if __name__ == '__main__':
     app.run(debug=True)
 
     
-
-

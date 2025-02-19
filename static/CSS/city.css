@@ -1,0 +1,291 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f0f8ff;
+}
+h1 {
+    color: black;
+}
+p {
+    font-size: 18px;
+}
+a {
+    text-decoration: none;
+    color: #0066cc;
+}
+.container {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+}
+/* .image{
+    flex: 1;
+    height: 100%;
+} */
+.text {
+    flex: 1;
+    height: 100%;
+}
+.image {
+    background-color: cadetblue;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 750px;
+    width: 800px;
+}
+.text {
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 600px;
+}
+.itinerary {
+    padding-left: 60px;
+    padding-right: 30px;
+}
+img {
+    width: 100%;
+    height: 750px;
+    border-radius: 10px;
+}
+.font {
+    font-size: 80px;
+}
+.font2 {
+    font-size: 44px;
+}
+.slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-top: 20px;
+}
+.slider {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+.small-div {
+    flex-shrink: 0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.day-div{
+    flex-shrink: 0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.day-div {
+    min-width: 520px;
+    height: 800px;
+    
+    margin-right: 10px;
+    position: relative;
+    object-fit: cover;
+}
+.small-div {
+    min-width: 250px;
+    height: 250px;
+    background-color: #ff9999;
+    margin-right: 10px;
+}
+.timings {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 22px;
+}
+.pink-div {
+    width: 85%;
+    height: 45%;
+    background-color: pink;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    object-fit: cover;
+}
+img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+.time {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    
+}
+.arrow-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+.arrow {
+    background-color: #fdd835;
+    color: black;
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    margin-left: 10px;
+    font-size: 20px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.arrow:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.hostel-container {
+    display: flex;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    width: 1500px;
+    height: 500px;
+    margin: 50px auto;
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    will-change: transform, box-shadow;
+}
+
+/* Smoother hover effect */
+.hostel-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.hostel-image {
+    width: 40%;
+    position: relative;
+}
+
+/* Smoother zoom-in effect on image */
+.hostel-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+.hostel-container:hover .hostel-image img {
+    transform: scale(1.08);
+}
+
+.tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #FFD700;
+    color: black;
+    padding: 5px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.hostel-container:hover .tag {
+    transform: scale(1.1);
+}
+
+.hostel-details {
+    width: 60%;
+    padding: 30px;
+    transition: transform 0.4s ease-in-out;
+}
+
+/* Heading */
+.hostel-details h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Paragraph */
+.hostel-details p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Icons */
+.icons {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.icons img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.icons img:hover {
+    transform: scale(1.2);
+}
+
+/* Pricing */
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.price span {
+    font-size: 22px;
+    color: black;
+}
+
+/* Book Button */
+.book-btn {
+    background: #FFD700;
+    padding: 12px 22px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.book-btn:hover {
+    background: #e6c200;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hostel-container {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .hostel-image {
+        width: 100%;
+        height: 250px;
+    }
+
+    .hostel-details {
+        width: 100%;
+    }
+}

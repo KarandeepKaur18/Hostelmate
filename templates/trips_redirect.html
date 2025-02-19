@@ -31,7 +31,10 @@
             <p id="desti_para"> {{ trips.para }} </p>
             <div class="elements">
             <h4 id="desti_para2"> {{ trips.price }}</h4>
-            <button id="desti_button" type="submit">View -> </button>
+            
+            <a href="{{ url_for('book')}}">
+            <button id="desti_button" type="submit">Book</button>
+            </a>
             </div>
         </div>
 

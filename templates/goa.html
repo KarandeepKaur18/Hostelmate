@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GOA</title>
+   <link rel="stylesheet" href="{{url_for('static',filename='CSS/city.css')}}">
+</head>
+<body>
+    <div class="container">
+        <div class="image">
+            <img src="{{url_for('static',filename='images/goa.webp')}}" alt="Hostel Image">
+        </div>
+        <div class="text">
+            <h1 class="font">GOA</h1>
+            <p>
+                Goa, a paradise for hostel travelers, offers a perfect mix of sun, sand, and vibrant nightlife,
+                 making it an ideal destination for budget-conscious adventurers. Hostels in Goa provide affordable
+                  accommodations close to stunning beaches, lively markets, and diverse dining options, fostering a
+                   social atmosphere where travelers can easily connect and share experiences. Enjoy water sports, beach
+                    parties, and the rich cultural heritage, all while staying in a friendly and communal environment.
+            </p>
+            <div style="display: flex; align-items: center; width: 100%;">
+                <h1 class="font2">WHAT IT IS FAMOUS FOR?</h1>
+                <div class="arrow-container">
+                    <button class="arrow" onclick="slide('left')">&lt;</button>
+                    <button class="arrow" onclick="slide('right')">&gt;</button>
+                </div>
+            </div>
+            <div class="slider-wrapper">
+                <div class="slider" id="famous-slider">
+                    <div class="small-div"><img src="{{url_for('static',filename='images/goa 1.webp')}}" alt="Hostel Image"></div>
+                    <div class="small-div"><img src="{{url_for('static',filename='images/goa 2.webp')}}" alt="Hostel Image"></div>
+                    <div class="small-div"><img src="{{url_for('static',filename='images/goa 3.webp')}}" alt="Hostel Image"></div>
+                    <div class="small-div"><img src="{{url_for('static',filename='images/goa4.webp')}}" alt="Hostel Image"></div>
+                    <div class="small-div"><img src="{{url_for('static',filename='images/goa 5.webp')}}" alt="Hostel Image"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="itinerary">
+        <h1 class="font2">ITINERARY</h1>
+        <div style="display: flex; align-items: center; width: 100%;">
+            <h3>How to spend a day in Goa</h3>
+            <div class="arrow-container">
+                <button class="arrow" onclick="slideDay('left')">&lt;</button>
+                <button class="arrow" onclick="slideDay('right')">&gt;</button>
+            </div>
+        </div>
+        <div class="slider-wrapper">
+            <div class="slider" id="day-slider">
+                <div class="day-div"><span class="timings">- - - - ( 7:00 AM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/goa day1.webp')}}" alt="Hostel Image"></div><span class="time" ><b>Breakfast at the Hostel</b>
+                    Start your day with a delicious breakfast at your hostel. Many hostels in Goa offer a variety of local and international dishes to kickstart your day.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 8:00 AM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/goa beach yoga.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Morning Beach Yoga Session</b>Head to the beach for a refreshing morning yoga session. Many hostels offer yoga classes on the beach, providing a perfect start to your day with some relaxation and mindfulness.
+                </span></div>
+                <div class="day-div"><span class="timings">- - - - ( 10:00 AM ) - - - -</span><div class="pink-div"><img src="{{url_for('static',filename='images/goa old.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Explore Old Goa and Basilica of Bom Jesus </b>Visit Old Goa to explore its historic churches and landmarks. Don't miss the Basilica of Bom Jesus, a UNESCO World Heritage Site, and the Se Cathedral.
+                </span></div>
+                <div class="day-div"><span class="timings">- - - - ( 1:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/goa lunch.webp')}}" alt="Hostel Image"></div><span class="time"><b>Lunch</b>For lunch, head to a nearby beach shack to enjoy fresh seafood and local Goan cuisine. Beach shacks are a great way to experience the local food culture.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 2:30 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/goa beach.jpg')}}" alt="Hostel Image"></div><span class="time"><b>Relax at Anjuna Beach</b>
+                    Take a break and relax at Anjuna Beach. You can swim, sunbathe, or simply enjoy the serene atmosphere. It's a great spot to unwind and soak in the beauty of Goa.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 4:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/goa beach.webp')}}" alt="Hostel Image"></div><span class="time"><b>- Explore Arambol Beach</b>
+                    Head to Arambol Beach for some more beach time. You can try water sports like paddleboarding or simply take a leisurely walk along the shore.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 6:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/goa dinner.webp')}}" alt="Hostel Image"></div><span class="time"><b>Dinner at a Local Restaurant </b>For dinner, choose a local restaurant that offers a variety of Goan dishes. Enjoy a meal with fresh ingredients and authentic flavors.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 9:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/goa club.webp')}}" alt="Hostel Image"></div><span class="time"><b>Nightlife at a Beach Club </b>End your day with some nightlife at a beach club. Enjoy music, dancing, and drinks while soaking in the vibrant atmosphere of Goa's nightlife.</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="hostel-container">
+        <div class="hostel-image">
+            <img src="{{url_for('static',filename='images/goa hostel.webp')}}" alt="Hostel Image">
+            <div class="tag">Paragliding Heaven</div>
+</div>
+<div class="hostel-details">
+    <h2>The Hostemate Goa</h2>
+    <p>
+        Located in the heart of vibrant North Goa, just a short walk from pristine beaches, popular surf spots, 
+        and lively beach shacks. This hostel offers cozy dormitories, private rooms, complimentary Wi-Fi, a rooftop
+         lounge with stunning sunset views, and an inviting outdoor pool. It's the perfect spot to soak up the relaxed,
+          bohemian atmosphere and explore Goa's rich cultural heritage and exciting nightlife.
+    </p>
+    <div class="icons">
+        <img src="https://img.icons8.com/ios-filled/50/000000/coffee.png" alt="Coffee">
+        <img src="https://img.icons8.com/ios-filled/50/000000/bed.png" alt="Bed">
+        <img src="https://img.icons8.com/ios-filled/50/000000/wifi.png" alt="Wi-Fi">
+        <img src="https://img.icons8.com/ios-filled/50/000000/swimming.png" alt="Pool">
+    </div>
+    <p class="price">Starting @ <span>₹462</span>/night</p>
+    <a href="{{ url_for('book')}}">
+    <button class="book-btn">Book Now</button>
+    </a>
+</div>
+</div>
+    
+<script src="{{ url_for('static',filename='JavaScript/city.js') }}"></script>
+</body>
+</html>

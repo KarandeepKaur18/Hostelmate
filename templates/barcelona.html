@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Barcelona</title>
+    <link rel="stylesheet" href="static/css/city.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image">
+            <img src="{{url_for('static',filename='images/barcelona.webp')}}" alt="Hostel Image">
+        </div>
+        <div class="text">
+            <h1 class="font">BARCELONA</h1>
+            <p>
+                Barcelona is a captivating city offering an ideal blend of stunning architecture,
+                 rich culture, vibrant nightlife, and beach vibes, making it a fantastic destination
+                  for hostel travelers seeking budget-friendly accommodations and diverse experiences. 
+                  Enjoy Gaudí's masterpieces, explore historic neighborhoods, indulge in delicious food,
+                 and socialize with travelers from around the world.
+            </p>
+            <div style="display: flex; align-items: center; width: 100%;">
+                <h1 class="font2">WHAT IT IS FAMOUS FOR?</h1>
+                <div class="arrow-container">
+                    <button class="arrow" onclick="slide('left')">&lt;</button>
+                    <button class="arrow" onclick="slide('right')">&gt;</button>
+                </div>
+            </div>
+            <div class="slider-wrapper">
+                <div class="slider" id="famous-slider">
+                    <div class="small-div"> <img src="{{url_for('static',filename='images/barcelona 1.webp')}}" alt="Hostel Image"></div>
+                    <div class="small-div"> <img src="{{url_for('static',filename='images/barcelona 2.webp')}}" alt="Hostel Image"></div>
+                    <div class="small-div"> <img src="{{url_for('static',filename='images/barcelona 3.webp')}}" alt="Hostel Image"></div>
+                    <div class="small-div"> <img src="{{url_for('static',filename='images/barcelona 4.webp')}}" alt="Hostel Image"></div>
+                    <div class="small-div"> <img src="{{url_for('static',filename='images/barcelona 5.webp')}}" alt="Hostel Image"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="itinerary">
+        <h1 class="font2">ITINERARY</h1>
+        <div style="display: flex; align-items: center; width: 100%;">
+            <h3>How to spend a day in Barcelona</h3>
+            <div class="arrow-container">
+                <button class="arrow" onclick="slideDay('left')">&lt;</button>
+                <button class="arrow" onclick="slideDay('right')">&gt;</button>
+            </div>
+        </div>
+        <div class="slider-wrapper">
+            <div class="slider" id="day-slider">
+                <div class="day-div"><span class="timings">- - - - ( 7:00 AM ) - - - - </span><div class="pink-div"> <img src="{{url_for('static',filename='images/barcelona day1.webp')}}" alt="Hostel Image"></div><span class="time"><b>Breakfast at the Hostel</b>
+                    Start your day with a hearty breakfast at your hostel. Many hostels offer complimentary breakfast, so take advantage of it to fuel up for the day ahead.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 8:00 AM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/barcelona day2.webp')}}" alt="Hostel Image"></div><span class="time"><b>Explore Las Ramblas and the Gothic Quarter</b>Head out early to explore Las Ramblas, a bustling street filled with shops, street performers, and cafes. Continue to the Gothic Quarter, where you can wander through narrow medieval streets and admire historic buildings.
+                    </span></div>
+                <div class="day-div"><span class="timings">- - - - ( 10:00 AM ) - - - -</span><div class="pink-div"><img src="{{url_for('static',filename='images/barcelona day3.webp')}}" alt="Hostel Image"></div><span class="time"><b>Visit Sagrada Familia </b>Make your way to the iconic Sagrada Familia, a masterpiece designed by Antoni Gaudí. Take your time to admire the stunning architecture and beautiful interior.
+                    </span></div>
+                <div class="day-div"><span class="timings">- - - - ( 1:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/barcelona day4.webp')}}" alt="Hostel Image"></div><span class="time"><b>Lunch</b> For lunch, visit a local tapas bar to experience authentic Spanish cuisine. Try a variety of small dishes like patatas bravas, jamón ibérico, and gambas al ajillo.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 2:30 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/barcelona day5.webp')}}" alt="Hostel Image"></div><span class="time"><b>Relax at Barceloneta Beach</b>
+                    Take a break and head to Barceloneta Beach. Enjoy the sandy shore, take a swim, or simply relax and soak up the sun.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 4:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/barcelona day6.webp')}}" alt="Hostel Image"></div><span class="time"><b>Visit Park Güell</b>
+                    Head to Park Güell, another one of Gaudí's masterpieces. Wander through the colorful gardens, explore the unique architectural elements, and enjoy the panoramic views of the city.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 6:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/barcelona day7.webp')}}" alt="Hostel Image"></div><span class="time"><b>Dinner at a Rooftop Restaurant </b>For dinner, choose a rooftop restaurant with views of the city. Enjoy a delicious meal while taking in the stunning nighttime skyline of Barcelona.</span></div>
+                <div class="day-div"><span class="timings">- - - - ( 9:00 PM ) - - - - </span><div class="pink-div"><img src="{{url_for('static',filename='images/barcelona day8.webp')}}" alt="Hostel Image"></div><span class="time"><b>Nightlife at Passeig de Gracia </b>End your day with some nightlife at Passeig de Gracia, a famous avenue lined with luxury shops, theaters, and cafes. Explore the area, enjoy some drinks, and soak in the vibrant atmosphere.
+                </span></div>
+        </div>
+    </div>
+    <div class="hostel-container">
+        <div class="hostel-image">
+            <img src="{{url_for('static',filename='images/barcelone hostel.webp')}}" alt="Hostel Image">
+            <div class="tag"></div>
+            <div class="tag"></div>
+</div>
+<div class="hostel-details">
+    <h2>The Hostemate Barcelona</h2>
+    <p>Located in the heart of the vibrant Gothic Quarter, just a short stroll from the beach, famous attractions,
+         and bustling cafes. This hostel offers cozy dormitories, private rooms, free Wi-Fi, a rooftop terrace, and
+          a refreshing outdoor pool. It's the ideal spot to immerse yourself in Barcelona's rich culture and lively atmosphere.
+      
+    </p>
+    <div class="icons">
+        <img src="https://img.icons8.com/ios-filled/50/000000/coffee.png" alt="Coffee">
+        <img src="https://img.icons8.com/ios-filled/50/000000/bed.png" alt="Bed">
+        <img src="https://img.icons8.com/ios-filled/50/000000/wifi.png" alt="Wi-Fi">
+        <img src="https://img.icons8.com/ios-filled/50/000000/swimming.png" alt="Pool">
+    </div>
+    <p class="price">Starting @ <span>₹462</span>/night</p>
+    <a href="{{ url_for('book')}}">
+    <button class="book-btn">Book Now</button>
+    </a>
+</div>
+</div>
+    
+<script src="{{ url_for('static',filename='JavaScript/city.js') }}"></script>
+</body>
+</html>

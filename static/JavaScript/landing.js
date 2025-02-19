@@ -26,9 +26,23 @@ desti_imgs.forEach((img) => {
 // **************************************************************
 // js  for the search
 
+// Get today's date in the format YYYY-MM-DD
+const today = new Date().toISOString().split('T')[0];   
+
+// Set the min attribute to today's date for both inputs
+document.getElementById('checkin').setAttribute('min', today);
+document.getElementById('checkout').setAttribute('min', today);
+
+// Optional: Update checkout's min dynamically based on check-in selection
+document.getElementById('checkin').addEventListener('change', function () {
+    const checkinDate = this.value;
+    document.getElementById('checkout').setAttribute('min', checkinDate);
+});
+
 
 // ********************************************** js on email button
 
 document.getElementById("button_connect").addEventListener("click", function(){
     window.location.href = "mailto:"
 })
+
