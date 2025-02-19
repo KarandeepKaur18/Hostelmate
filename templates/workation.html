@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block styles %}
+   <link rel="stylesheet" href="{{url_for('static',filename='CSS/Landing.css')}}">
+{% endblock %}
+
+{% block main_block %}
+
+  <div class="container_workstation">
+    <img id="workation_img" src="{{ url_for('static', filename='images/workation.webp')}}">
+  </div>
+  
+  <div class="workation_theory">
+
+    <h1 id="workation_h"> Workation </h1>
+    <p id="workation_para"> Imagine waking up to the sound of birds and the sight of trees swaying outside your window. You realize the day is already packed: you have an early morning hike, then a quick lunch at the oldest restaurant in town, and you have to be back for the evening bonfire. What are you forgetting? Oh right, it’s a Monday so you also have work.
+
+        Isn’t it wonderful to be able to prioritize our passions? Pack your bags and escape to Nainital, Ooty, Goa, McLeodganj, or whichever place you daydream about. Just bring along your laptop and we’ll provide the experience. </p>
+    
+  </div>
+
+  <h1 style="text-align: center;"> Features </h1>
+
+  <div class="features">
+
+    <div class="list_features">
+        <h2>Breathtaking views</h2>
+        <p>Turn meetings into a treat by soaking in the stunning views.</p>
+    </div>
+
+    <div class="list_features">
+        <h2>High Wifi Speeds </h2>
+        <p>Enjoy high-speed, reliable, and hassle-free internet.</p>
+
+    </div>
+
+  </div>
+
+
+  <div class="features">
+
+    <div class="list_features">
+        <h2>Tasty meals</h2>
+        <p>Reward yourself with the yummy food served at our in-house cafe.</p>
+    </div>
+
+    <div class="list_features">
+        <h2>Recreational zones / activities </h2>
+        <p>Beat the stress with foosball, chess, snooker, and other games..</p>
+
+    </div>
+
+  </div>
+
+  <br><br><br><br>
+
+  <h1 id="workation_h"> What Your Normal Day Could Look Like </h1>
+
+  <img id="workation_img2" src="{{ url_for('static', filename='/images/workation2.webp')}}">
+
+  <br><br><br>
+
+  <h1 style="font-size: 100px;">Loved By So Many People Around The World</h1>
+  <br><br>
+  
+  <button id="button_workation" type="submit"> Book Here </button>
+
+ 
+
+{% endblock %}
+

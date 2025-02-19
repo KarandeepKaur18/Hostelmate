@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/Landing.css')}}">
+{% endblock %}
+
+
+{% block main_block %}
+   <div class="container_destidirect">
+        <div class="section1">
+            <div class="destidirect_home1 position-relative">
+                <img class="img1 img-fluid" src="{{ url_for('static', filename=trips.image) }}">
+                <h1 class="desti_heading position-absolute  translate-middle text-white bg-dark bg-opacity-50 px-3 py-2 rounded">
+                    {{ trips.title }}
+                </h1>
+            </div>
+        </div>
+        
+        <br><br><br>
+        
+
+        <div class="body_section">
+
+        <div class="section2">
+        <div class="destidirect_home">
+            <img class="img2" src="{{ url_for('static', filename=trips.image2) }}">
+        </div>
+
+        <div class="description">
+            <p id="desti_para"> {{ trips.para }} </p>
+            <div class="elements">
+            <h4 id="desti_para2"> {{ trips.price }}</h4>
+            <button id="desti_button" type="submit">View -> </button>
+            </div>
+        </div>
+
+        </div>
+
+        <br><br><br>
+
+       
+
+    </div>
+    </div>
+    
+{% endblock %}
+

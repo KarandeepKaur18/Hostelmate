@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block main_block %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ city.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/search.css') }}">
+
+    {% block styles %}
+       <link rel="stylesheet" href="{{url_for('static',filename='CSS/Landing.css')}}">
+    {% endblock %}
+
+</head>
+<body>
+    <div class="container">
+        <h1 id="search_heading" class="city-title">Welcome to {{ city.city}}</h1>
+        <div class="city-images">
+            <img id="seacrh_img1" src="{{ url_for('static', filename=city.image) }}" alt="{{ city.city }} Image">
+            <h1 id="search_heading"> Book Your Hostels in {{ city.city}}</h1>
+        </div>
+        <!-- <div class="search_des">
+        <p class="city-description">{{ city.description }}</p>
+        <p><strong>Check-in:</strong> {{ checkin }}</p>
+        <p><strong>Check-out:</strong> {{ checkout }}</p>
+        <p><strong>Guests:</strong> {{ guests }}</p>
+        </div> -->
+
+
+        <div class="search_section2">
+            <div class="destidirect_home">
+                <img id="search_img2" src="{{ url_for('static', filename=city.image2) }}" alt="{{ city.city }} Hostel">
+            </div>
+
+            <div class="description_search">
+                <p id="desti_para"> {{ city.description }} </p>
+                <p id="para_search"><strong>Check-in:</strong> {{ checkin }}</p>
+                <p id="para_search"><strong>Check-out:</strong> {{ checkout }}</p>
+                <p id="para_search"><strong>Guests:</strong> {{ guests }}</p>
+                <br>
+                <div class="elements_search">
+                <h4 id="desti_para2"> To book Top Hostel in {{  city.city }}</h4>
+                
+                <a href=" {{ url_for('book')}}">
+                <button id="desti_button_search" type="submit"> Book Now  </button>
+                
+                </div>
+            </div>
+
+
+        </div>
+
+        
+    </div>
+
+    
+</body>
+</html>
+
+{% endblock %}

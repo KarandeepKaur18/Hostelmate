@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .checkmark {
+            font-size: 50px;
+            color: green;
+            display: none;
+            margin-bottom: 20px;
+        }
+        .success {
+            font-size: 20px;
+            color: #28a745;
+        }
+        .data {
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .data div {
+            margin: 10px 0;
+        }
+
+        /* Animation */
+        @keyframes checkmark {
+            0% { opacity: 0; transform: scale(0.5); }
+            70% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .checkmark.show {
+            display: inline-block;
+            animation: checkmark 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="checkmark" id="checkmark">✔</div>
+        <div class="success" id="success-message">Booking Successful!</div>
+        
+        <div class="data">
+            <h3>Booking Details:</h3>
+            <div><strong>Username:</strong> {{ username }}</div>
+            <div><strong>Email:</strong> {{ email }}</div>
+            <div><strong>Phone:</strong> {{ phone }}</div>
+            <div><strong>Check-in Date:</strong> {{ check_in }}</div>
+            <div><strong>Check-out Date:</strong> {{ check_out }}</div>
+            <div><strong>Payment Method:</strong> {{ payment_method }}</div>
+            <div><strong>Card Number:</strong> {{ card_number }}</div>
+            <div><strong>Expiry Date:</strong> {{ expiry_date }}</div>
+            <div><strong>CVV:</strong> {{ cvv }}</div>
+        </div>
+
+
+        <a href="{{ url_for('home')}}">
+            <button type="submit">
+                Choose Other Journey 
+            </button>
+        </a>
+    </div>
+
+    <script>
+        window.onload = () => {
+            // Display success message and animated checkmark after page load
+            document.getElementById('checkmark').classList.add('show');
+            setTimeout(() => {
+                document.getElementById('success-message').style.display = 'block';
+            }, 1000);
+        };
+    </script>
+</body>
+</html>
