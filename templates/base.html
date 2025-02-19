@@ -66,18 +66,18 @@
                         
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-telephone"></i>Workation </a>
+                        <a class="nav-link" href="{{ url_for('workation')}}"><i class="bi bi-telephone"></i>Workation </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-envelope"></i> Connect With us</a>
+                        <a class="nav-link" href="#link_to_nav"><i class="bi bi-envelope"></i> Connect With us</a>
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-envelope"></i> Trips </a>
+                        <a class="nav-link" href="#connect_to_nav"><i class="bi bi-envelope"></i> Trips </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('faq')}}"><i class="bi bi-envelope"></i> FAQ </a>
+                        <a class="nav-link" href="#faq"><i class="bi bi-envelope"></i> FAQ </a>
                     </li>
 
                     <li class="nav-item">
@@ -106,7 +106,7 @@
     </main>
     
     <footer class="text-center text-lg-start">
-        <div class="container">
+        <div class="container" id="link_to_nav">
             <div class="row text-center text-md-start justify-content-between">
                 
                 <div class="col-md-3 d-flex flex-column align-items-md-start align-items-center">
@@ -124,9 +124,10 @@
                     <h5>Important Links</h5>
                     <ul class="list-unstyled">
                         <li><a href="{{url_for('career')}}">Career</a></li>
-                        <li><a href="{{url_for('career')}}">Volunteer</a></li>
-                        <li><a href="{{url_for('career')}}">Invest & Partner</a></li>
-                        <li><a href="{{url_for('press')}}">Press Mentions</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Invest & Partner</a></li>
+                        <li><a href="#">Press Mentions</a></li>
                         <li><a href="{{url_for('about')}}">About Us</a></li>
                     </ul>
                 </div>

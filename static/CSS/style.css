@@ -156,13 +156,18 @@ footer .social-section h5 {
     transform: scale(1.1);
 }
 
-body {
+/* Styling of base.html ends here */
+
+
+/* Styling of about page starts here*/
+/* General Styles */
+/* body {
     font-family: 'Poppins', sans-serif;
     background-color: #f5f5f5;
     color: #333;
     margin: 0;
     padding: 0;
-}
+} */
 
 .text-center {
     text-align: center;
@@ -174,3 +179,64 @@ h2 {
     text-align: center;
     margin-bottom: 20px;
 }
+
+/* About Page Container */
+.about-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 50px 20px;
+}
+
+/* styling for about page */
+.main {
+    background: url('/static/images/hero-image.jpg') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+}
+
+.main::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 128, 128, 0.7); /* Teal overlay */
+}
+
+.main h1, .hero p {
+    position: relative;
+  
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.feature {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    transition: transform 0.3s;
+}
+
+.feature:hover {
+    transform: scale(1.05);
+}
+
+.feature i {
+    font-size: 40px;
+    color: teal;
+    margin-bottom: 10px;
+}
+
+
+
+/* Styling of about.html ends here */
+

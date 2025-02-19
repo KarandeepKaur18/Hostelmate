@@ -1,5 +1,9 @@
 /* Styling of landing page starts here  */
 
+.overall_sec{
+    background-color: beige;
+}
+
  /* Welcome page styling */
 * {
     margin: 0;
@@ -149,4 +153,819 @@ button.btn.btn-primary {
     height: 47px;
     margin: 3px;
 }
+
+form select {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+form select:hover {
+    border-color: #007bff;
+}
+
+.search{
+    position: absolute;
+    margin-top: 60vh;
+    margin-left: 18vw;
+    display: flex;
+    justify-content:space-between;
+    z-index: 1;
+    border-radius: 3px solid white;
+    background-color:aliceblue ;
+    border-radius:10px;
+}
+
+
+/* ******************************************************************************************************************************************* */
+/* DESTINATION STYLING HERE  */
+.container_desti{
+    padding-top: 100px;
+    width: 100vw;
+    height: 30vh;
+    display: flex;
+    margin: 2px;
+
+}
+
+img.desti_img {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    margin: 2px;
+}
+
+img.desti_img:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.dest_text{
+    margin-left: 70px;
+}
+
+
+/* **********************************************************************************************************************************8 */
+
+.destidirect_home1{
+    width: 100vw;
+    height: 100vh;
+    /* position: relative; */
+}
+
+.section1{
+    position: relative;
+    display: flex;
+    height: 80vh;
+
+}
+
+img.img1{
+   width: 100vw;
+   height: 80vh;
+   margin-top: 5px;
+
+}
+
+h1.desti_heading {
+    margin-left: 50vw;
+    position: absolute;
+    margin-top: -40vh;
+    font-size: 50px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+img.img2 {
+    width: 40vw;
+    margin-left: 30px;
+    border-radius: 50%;
+}
+
+.section2{
+    display: flex;
+
+    
+}
+
+.description{
+    background-color: ivory;
+    width: 44vw;
+    height: 35vh;
+    margin-left: 10vw;
+    border-radius: 30px;
+    
+}
+
+p#desti_para {
+    margin: 40px;
+    font-size: larger;
+}
+
+h4#desti_para2 {
+    margin-left: 32px;
+}
+
+.elements{
+    display: flex;
+
+}
+
+#desti_button {
+    margin-left: 20vw;
+    margin-top: -1vh;
+    width: 5vw;
+} 
+
+.Container_destination {
+    height: 50vh;
+}
+.cont_trips {
+    /* width: 30vh; */
+    height: 60vh;
+}
+
+
+/* ******************************************************************88 */
+
+/* Styling of connect page */
+
+.cont_connect_travelers {
+    background-color: blueviolet;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    padding-top: 1px;
+}   
+
+
+.inner_box {
+    background-color: antiquewhite;
+    width: 22vw;
+    height: 70vh;
+    margin-left: 590px;
+    margin-top: 10%;
+    position: relative;
+    border-radius: 20px;
+}
+
+.conn_img{
+    margin-left: 26px;
+    margin-top: 24px;
+    border-radius: 10px;
+}
+
+
+#cc_heading{
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+#cc_para{
+    margin-left: 80px;
+    /* margin-top: 8px; */
+    font-size:larger;
+}
+
+.cc_img{
+    width: 4vw;
+    border-radius: 50%;
+    margin-top: 50px;
+    /* margin: 10px; */
+}
+.cc_img_i{
+    width: 3.5vw;
+    border-radius: 50%;
+    position: absolute;
+    margin-top: 3vw;
+    margin-left: 10vw;
+}
+
+.cc_img_ii{
+    width: 3.5vw;
+    border-radius: 50%;
+    position: absolute;
+    margin-top: 3vw;
+    margin-left: -2vw;
+}
+
+.circles{
+    background-color: thistle;
+    border-radius: 100px;
+    /* margin: 10px; */
+
+}
+
+
+
+.circles2 {
+    position: absolute;
+    margin-left: 8vw;
+    margin-top: -50vh;
+    border-radius: 100px;
+    width: 4vw;
+}
+
+.circles3{
+    position: absolute;
+    margin-left: 70vw;
+    margin-top: -30vh;
+    border-radius: 100px;
+    width: 10vw;
+}
+
+.circles4{
+    position: absolute;
+    margin-left: 86vw;
+    margin-top: -50vh;
+    border-radius: 100px;
+    width: 10vw;
+}
+
+.circles5{
+    position: absolute;
+    margin-left:86vw;
+    margin-top: -20vh;
+    border-radius: 100px;
+    width: 8vw;
+}
+
+.circles6{
+    position: absolute;
+    margin-left: 20vw;
+    margin-top: -68vh;
+    border-radius: 100px;
+    width: 10vw;
+}
+
+.circles7{
+    position: absolute;
+    margin-left: 20vw;
+    margin-top: -40vh;
+    border-radius: 100px;
+    width: 6vw;
+}
+
+.circles8{
+    position: absolute;
+    margin-left: 5vw;
+    margin-top: -20vh;
+    border-radius: 100px;
+    width: 7vw;
+}
+
+.circles9{
+    position: absolute;
+    margin-left: 70vw;
+    margin-top: -70vh;
+    border-radius: 100px;
+    width: 10vw;
+}
+
+.circles{
+    margin-left: 6vw;
+    margin-top: -160vh;
+    width: 6vw;
+
+}
+
+
+.connect_text {
+    display: flex;
+    position: absolute;
+    top: 3%;
+    left: 33%;
+    margin-left: 3.5vw;
+    width: 50vw;
+    
+}
+
+
+h1#connect_text1 {
+    font-size: 50px;
+    font-family: cursive;
+    color: aliceblue;
+    width: 7vw;
+}
+
+h1#connect_text3 {
+    font-size: 50px;
+    font-family: cursive;
+    color: aliceblue;
+}
+h1#connect_text2 {
+    font-size: 70px;
+    font-family: cursive;
+    color:yellow;
+    width: 15vw;
+}
+
+#connect_btn{
+    position: absolute;
+    margin-top: -10vh;
+    margin-left: 34vw;
+    height: 30px;
+}
+
+
+
+/* Connecting section 2  */
+/* button.submit_connect {
+    margin-top: 10vh;
+} */
+.pamp {
+    background-color:peru;
+    width: 400px;
+    height: 500px;
+}
+
+.connect_section2{
+    display: flex;
+    padding: 20vh;
+    background-color: palevioletred;
+    width: 100vw;
+    height: 100vh;
+}
+
+.pamp1{
+    background-color:peru
+}
+
+.pamp2{
+    background-color:sienna;
+}
+
+.pamp3{
+    background-color:teal;
+}
+
+.profile_img1{
+    position: relative;
+    padding-top: 13vh;
+    padding-left: 3vw;
+    width: 23vw;
+}
+
+.profile_img2{
+    position: relative;
+    padding-top: 5vh;
+    padding-left: 5vw;
+    width: 23vw;
+    border-radius: 30px;
+}
+
+.profile_img3{
+    position: relative;
+    padding-top: 12vh;
+    padding-left: 3vw;
+    width: 23vw;
+    border-radius: 10px;
+}
+
+
+
+/* ******************************************************************************************************* */
+.travel_tips{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.blog-card {
+    flex: 0 0 280px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    scroll-snap-align: start;
+}
+
+.header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    color: #666;
+    font-size: 1.1rem;
+} 
+
+.blog-carousel {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 1rem 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.blog-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* **********************************************************************************
+FAQ STYLING  */
+
+.text {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.text h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+}
+
+.color {
+    color: rgb(252, 232, 116);
+    
+}
+.image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+
+
+
+.accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+
+.accordion-item {
+    background-color: white;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+
+.accordion-button {
+    background-color:rgb(243, 230, 154);
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+
+.accordion-button:not(.collapsed) {
+    background-color: rgb(135, 135, 239);
+    color: #333;
+}
+
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+
+.accordion-body {
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: justify;
+    font-size: 16px;
+} 
+
+
+/* *****************************************************************************
+ABOUT US STYLING  */
+
+
+.hero {
+    background: linear-gradient(rgba(104, 114, 131, 0.9), rgba(40, 78, 140, 0.9)),
+                url('/api/placeholder/1920/600');
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.section {
+    padding: 5rem 0;
+}
+
+.section:nth-child(even) {
+    background-color: var(--light-gray);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.mission-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.mission-card:hover {
+    transform: translateY(-5px);
+}
+
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+}
+
+.stat-item h3 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.team-member {
+    text-align: center;
+}
+
+
+
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.section-title p {
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 3rem auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: var(--primary-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+}
+
+.timeline-item {
+    padding: 1rem 2rem;
+    position: relative;
+    width: 50%;
+    margin-bottom: 2rem;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--secondary-color);
+    border: 4px solid var(--primary-color);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+.timeline-item:nth-child(odd)::after {
+    right: -10px;
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -10px;
+}
+
+.timeline-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.cta-section {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+}
+
+
+/* ****************************************************************************************
+/* travellers profile */
+
+img.image_traveller {
+    margin-left: 38vw;
+}
+
+.traveller {
+    margin: 40px;
+    background-color: floralwhite;  
+}
+
+
+
+
+
+
+/* *******************************************************************************
+Search.html styling  */
+#search_heading{
+    text-align: center;
+    font-weight: 900;
+}
+
+img#seacrh_img1 {
+    margin-left: -11vw;
+}
+
+/* #search_heading1{
+    text-align: center;
+    font-weight: 900;
+    position: relative;
+    margin-top: -50vh;
+    color: #fff;
+
+} */
+
+.city-images {
+    background-color: cadetblue;
+}
+
+img#seacrh_img1 {
+    margin-left: 2vw;
+    width: 150vh;
+}
+
+.search_des{
+    margin-left: 1vw;
+    padding-top: 50px;
+    font-size: 40px;
+    background-color: azure;
+    border-radius: 50px;
+
+}
+
+.search_section2 {
+    display: flex;
+    margin-top: 10vh;
+}
+
+img#search_img2 {
+    height: 50vh;
+}
+
+.description_search {
+    background-color: ivory;
+    width: 44vw;
+    height: 50vh;
+    margin-left: 10vw;
+    border-radius: 30px;
+}
+
+#para_search{
+    margin-left: 50px;
+}
+
+.elements_search {
+    display: flex;
+    margin-left: 10px;
+}
+
+#desti_button_search {
+    margin-left: 10vw;
+    margin-top: -1vh;
+    width: 5vw;
+    background-color: #007bff;
+    color: #fff;
+}
+
+
+/* ****************************************************************************
+workation style */
+
+img#workation_img {
+    width: 100vw;
+}
+
+.workation_theory{
+    margin-top: 70px;
+}
+
+#workation_h{
+    text-align: center;
+    color: purple;
+}
+
+#workation_para{
+    font-size: 20px;
+    padding: 40px;
+}
+
+#workation_img2{
+    width: 100vw;
+}
+
+#button_workation{
+    font-size: 30px;
+    margin-left: 45vw;
+}
+
+
+
+
 

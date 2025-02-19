@@ -11,3 +11,24 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 1000);
     }, 3000);
 });
+
+
+
+let desti_imgs = document.querySelectorAll(".desti_img");
+desti_imgs.forEach((img) => {
+    img.addEventListener("click", () => {
+        alert('Redirecting to your destination');
+        window.location.href= "/static/templates/index.html";
+    })
+})
+
+
+// **************************************************************
+// js  for the search
+
+
+// ********************************************** js on email button
+
+document.getElementById("button_connect").addEventListener("click", function(){
+    window.location.href = "mailto:"
+})
