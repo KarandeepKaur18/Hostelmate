@@ -2,6 +2,7 @@ from flask import Flask,render_template,redirect,url_for, flash,request , sessio
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask_migrate import Migrate
+from werkzeug.security import generate_password_hash, check_password_hash
 import os
 from datetime import date
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
@@ -15,13 +16,6 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(basedir, "app.db")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config['SECRET_KEY'] = 'your_secret_key'
-UPLOAD_FOLDER = 'static/images'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif'}
-
-if not os.path.exists(UPLOAD_FOLDER):
-    os.makedirs(UPLOAD_FOLDER)
-
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -48,6 +42,112 @@ class City(db.Model):
 
     def __repr__(self):
         return f"City(id={self.id}, city='{self.city}', checkin={self.checkin}, checkout={self.checkout}, guests={self.guests})"
+    
+    
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    password_hash = db.Column(db.String(200), nullable=False)
+    role = db.Column(db.String(20), nullable=False)
+
+with app.app_context():
+    db.drop_all()
+    db.create_all()
+
+
+def create_admin():
+    if not User.query.filter_by(username='admin').first():
+        hashed_password = generate_password_hash('admin123', method='pbkdf2:sha256')
+        admin = User(username='admin', password_hash=hashed_password, role='admin')
+        db.session.add(admin)
+        db.session.commit()
+
+@app.route("/")
+def home():
+    cities = City.query.all()  # Fetch all cities from the database
+    return render_template("index.html", cities=cities)
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        role = request.form['role']
+        
+        existing_user = User.query.filter_by(username=username).first()
+        if existing_user:
+            return 'User already exists!'
+        
+        hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
+        new_user = User(username=username, password_hash=hashed_password, role=role)
+        db.session.add(new_user)
+        db.session.commit()
+        return redirect(url_for('login'))
+    return render_template('register.html')
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        
+        user = User.query.filter_by(username=username).first()
+        if user and check_password_hash(user.password_hash, password):
+            session['user_id'] = user.id
+            session['role'] = user.role
+            return redirect(url_for('dashboard'))
+        return 'Invalid credentials!'
+    return render_template('login.html')
+
+
+
+
+@app.route('/dashboard')
+def dashboard():
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+    return f"Welcome to the dashboard, {session['role']}!"
+
+
+@app.route('/admin')
+def admin():
+    if 'user_id' not in session or session.get('role') != 'admin':
+        return 'Access Denied!'
+    return 'Welcome, Admin!'
+
+
+
+@app.route('/add_city', methods=['POST'])
+@login_required
+def add_city():
+    if current_user.role not in ["Admin", "Staff"]:
+        flash("Permission denied!", "danger")
+        return redirect(url_for('dashboard'))
+
+    new_city = City(
+        city=request.form["city"],
+        checkin=request.form["checkin"],
+        checkout=request.form["checkout"],
+        guests=request.form["guests"],
+        title=request.form["title"],
+        image=request.form["image"],
+        image2=request.form["image2"],
+        description=request.form["description"]
+    )
+    db.session.add(new_city)
+    db.session.commit()
+    flash("City added successfully!", "success")
+    return redirect(url_for('dashboard'))
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('home'))
+
+with app.app_context():
+        db.create_all()
+        create_admin()
 
 
 with app.app_context():
@@ -120,18 +220,7 @@ with app.app_context():
 
 
 # User Model
-class User(db.Model, UserMixin):
-    __tablename__ = "user"
 
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
-    email = db.Column(db.String(100), unique=True, nullable=False)
-    mobile = db.Column(db.String(15), nullable=False)
-    password = db.Column(db.String(200), nullable=False)
-    profile_picture = db.Column(db.String(100), nullable=True)  # Profile picture column
-
-with app.app_context():
-    db.create_all()
 # Flask-Login: Load user from session
 @login_manager.user_loader
 def load_user(user_id):
@@ -164,10 +253,46 @@ class Contact(db.Model):
     email = db.Column(db.String(120), nullable=False)
     message = db.Column(db.Text, nullable=False)
 
-@app.route("/")
-def home():
-    cities = City.query.all()  # Fetch all cities from the database
-    return render_template("index.html", cities=cities)
+
+
+# Profile Route (Protected)
+@app.route("/profile", methods=['GET', 'POST'])
+@login_required
+def profile():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        email = request.form.get('email')
+        mobile = request.form.get('mobile')
+
+        if not all([name, email, mobile]):
+            flash("⚠ All fields are required!", "warning")
+            return redirect(url_for('profile'))
+
+    return render_template("profile.html", user=current_user)
+
+# Edit Profile Route (Protected)
+@app.route("/edit_profile", methods=['GET', 'POST'])
+@login_required
+def edit_profile():
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        mobile = request.form['mobile']
+
+        # Update user details
+        current_user.name = name
+        current_user.email = email
+        current_user.mobile = mobile
+        db.session.commit()
+
+        flash("✅ Profile updated successfully!", "success")
+        return redirect(url_for('profile'))  # Redirect back to profile page
+
+    return render_template("edit_profile.html", user=current_user)
+
+
+
+# ******************************************************************************************************
 
 
 @app.route("/search", methods=['POST'])
@@ -494,103 +619,7 @@ def signup():
 
     return render_template('sign_up.html')
 
-# Login Route
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        email = request.form.get('email')
-        password = request.form.get('password')
 
-        user = User.query.filter_by(email=email).first()
-
-        if user and user.password == hash_password(password):
-            login_user(user)  # Log in the user
-            flash("✅ Login successful!", "success")
-            return redirect(url_for('dashboard'))  # Redirect to dashboard
-        else:
-            flash("❌ Invalid email or password. Try again!", "danger")
-            return redirect(url_for('login'))
-
-    return render_template('login.html')
-
-# Dashboard Route (Protected)
-@app.route('/dashboard')
-@login_required
-def dashboard():
-    return render_template('dashboard.html')
-
-# Logout Route
-@app.route('/logout')
-@login_required
-def logout():
-    logout_user()
-    flash("✅ Logged out successfully!", "info")
-    return redirect(url_for('login'))
-
-# Profile Route (Protected)
-@app.route("/profile", methods=['GET', 'POST'])
-@login_required
-def profile():
-    if request.method == 'POST':
-        name = request.form.get('name')
-        email = request.form.get('email')
-        mobile = request.form.get('mobile')
-
-        if not all([name, email, mobile]):
-            flash("⚠ All fields are required!", "warning")
-            return redirect(url_for('profile'))
-
- # Handle profile picture upload
-        if 'profile_picture' in request.files:
-            file = request.files['profile_picture']
-            if file and allowed_file(file.filename):
-                filename = secure_filename(file.filename)
-                file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-                file.save(file_path)
-
-                # Update user's profile picture in the database
-                current_user.profile_picture = filename
-                db.session.commit()  # Commit change
-
-        # Update user details
-        current_user.name = name
-        current_user.email = email
-        current_user.mobile = mobile
-        db.session.commit()
-
-        flash("✅ Profile updated successfully!", "success")
-
-    return render_template("profile.html", user=current_user)
-# Edit Profile Route (Protected)
-@app.route("/edit_profile", methods=['GET', 'POST'])
-@login_required
-def edit_profile():
-    if request.method == 'POST':
-        name = request.form['name']
-        email = request.form['email']
-        mobile = request.form['mobile']
-
-        # Handle profile picture upload
-        if 'profile_picture' in request.files:
-            file = request.files['profile_picture']
-            if file and allowed_file(file.filename):
-                filename = secure_filename(file.filename)
-                file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-                file.save(file_path)
-
-                current_user.profile_picture = filename  # Save filename to the user
-                db.session.commit()  # Commit changes
-
-        # Update user details
-        current_user.name = name
-        current_user.email = email
-        current_user.mobile = mobile
-        db.session.commit()
-
-        flash("✅ Profile updated successfully!", "success")
-        return redirect(url_for('profile'))  # Redirect back to profile page
-
-    return render_template("edit_profile.html", user=current_user)
 
 desti_data = {
     "Alleppey": {

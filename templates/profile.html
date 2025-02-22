@@ -16,6 +16,12 @@
 
 
     <style>
+.navbar{
+    display: flex;
+    justify-content: flex-end;
+    text-indent: 30px;
+    
+}
     .profile-card {
     max-width: 900px;
     margin: 100px auto;
@@ -118,33 +124,12 @@
 
 <body>
 
-    <header class="header">
-
-        <div class="header-1">
-    
-            <a href="#" class="logo"> <i class="fas fa-book"></i> Book Point </a>
-    
-            <form action="{{ url_for('search') }}" method="get" class="search-form">
-                <input type="text" name="q" placeholder="Search for a book..." required>
-                <button type="submit"><label for="search-box" class="fas fa-search"></label></button>
-            </form>
-            
-            <div class="icons">
-                <div id="search-btn" class="fas fa-search"></div>
-                <a href="{{url_for('cart')}}" class="fas fa-shopping-cart"></a>
-            </div>
-    
-        </div>
-    
         <div class="header-2">
             <nav class="navbar">
-                <a href="{{url_for('home')}}">home</a>
-                <a href="{{url_for('aboutus')}}">About Us</a>
-                <a href="{{url_for('contact')}}">Contact Us</a>
-                
-                <a href="{{ url_for('dashboard') }}">Dashboard</a>  
+                <a class="nav-link" href="{{url_for('home')}}">Home</a>
+                <a class="nav-link" href="{{url_for('about')}}">About Us</a>
                     
-            <a href="{{ url_for('logout') }}">Logout</a>
+            <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
             </nav>
         </div>
     
@@ -156,11 +141,9 @@
         <div class="profile-card">
             <!-- Left Side - Profile Picture and Buttons -->
             <div class="profile-left">
-                <img src="{{ url_for('static', filename='images/' + (user.profile_picture if user.profile_picture else 'default.png')) }}"
+                <img src="{{ url_for('static', filename='images/' + (user.profile_picture if user.profile_picture else 'profile_picture.webp')) }}"
                      alt="Profile Picture" class="profile-img">
                 <h4>{{ user.name }}</h4>
-                <p>Full Stack Developer</p>
-                <p>Bay Area, San Francisco, CA</p>
                 
             </div>
             <!-- Right Side - User Details -->
@@ -174,68 +157,64 @@
         </div>
     </div>
     
+    <footer class="text-center text-lg-start">
+        <div class="container" id="link_to_nav">
+            <div class="row text-center text-md-start justify-content-between">
+                
+                <div class="col-md-3 d-flex flex-column align-items-md-start align-items-center">
+                    <h5>Accommodations</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{{url_for('travel')}}">Destinations</a></li>
+                        <li><a href="#">Bam Hostels</a></li>
+                        <li><a href="#">Hostels</a></li>
+                        <li><a href="#">Workations</a></li>
+                        <li><a href="#">Group Bookings</a></li>
+                    </ul>
+                </div>
     
-
+                <div class="col-md-3 d-flex flex-column align-items-md-start align-items-center">
+                    <h5>Important Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{{url_for('career')}}">Career</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Invest & Partner</a></li>
+                        <li><a href="#">Press Mentions</a></li>
+                        <li><a href="{{url_for('about')}}">About Us</a></li>
+                    </ul>
+                </div>
     
-
+                <div class="col-md-3 d-flex flex-column align-items-md-start align-items-center">
+                    <h5>Policies</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{{url_for('terms')}}">Guest Policy</a></li>
+                        <li><a href="{{url_for('terms')}}">Privacy Policy</a></li>
+                        <li><a href="{{url_for('terms')}}">Cancellation Policy</a></li>
+                        <li><a href="{{url_for('terms')}}">Terms & Conditions</a></li>
+                    </ul>
+                </div>
     
-<!-- footer section starts  -->
-
-<section class="footer">
-
-    <div class="box-container">
-
-        <div class="box">
-            <h3>our locations</h3>
-            <a href="#"> <i class="fas fa-map-marker-alt"></i> india </a>
-            <a href="#"> <i class="fas fa-map-marker-alt"></i> USA </a>
-            <a href="#"> <i class="fas fa-map-marker-alt"></i> russia </a>
-            <a href="#"> <i class="fas fa-map-marker-alt"></i> france </a>
-            <a href="#"> <i class="fas fa-map-marker-alt"></i> japan </a>
-        </div>
-
-        <div class="box">
-            <h3>quick links</h3>
-            <a href="#"> <i class="fas fa-arrow-right"></i> home </a>
-            <a href="#"> <i class="fas fa-arrow-right"></i> featured </a>
-            <a href="#"> <i class="fas fa-arrow-right"></i> arrivals </a>
-            <a href="#"> <i class="fas fa-arrow-right"></i> reviews </a>
-            <a href="#"> <i class="fas fa-arrow-right"></i> blogs </a>
-        </div>
-
-        <div class="box">
-            <h3>extra links</h3>
-            <a href="#"> <i class="fas fa-arrow-right"></i> account info </a>
-            <a href="#"> <i class="fas fa-arrow-right"></i> ordered items </a>
-            <a href="#"> <i class="fas fa-arrow-right"></i> privacy policy </a>
-            <a href="#"> <i class="fas fa-arrow-right"></i> payment method </a>
-            <a href="#"> <i class="fas fa-arrow-right"></i> our serivces </a>
-        </div>
-
-        <div class="box">
-            <h3>contact info</h3>
-            <a href="#"> <i class="fas fa-phone"></i> +91 8853455765 </a>
-            <a href="#"> <i class="fas fa-phone"></i> +91 9140026484 </a>
-            <a href="#"> <i class="fas fa-envelope"></i> onlinebookstore@gmail.com </a>
-            <img src="/static/image/worldmap.png" class="map" alt="">
-        </div>
-        
-    </div>
-
-    <div class="share">
-        <a href="#" class="fab fa-facebook-f"></a>
-        <a href="#" class="fab fa-twitter"></a>
-        <a href="#" class="fab fa-instagram"></a>
-        <a href="#" class="fab fa-linkedin"></a>
-        <a href="#" class="fab fa-pinterest"></a>
-    </div>
-
+                <div class="col-md-3 social-section">
+                    <h5>Follow Us</h5>
+                    <div class="social-icons">
+                        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+             
+            <br> 
+            <hr class="my-4">
     
-    <div class="credit"><span>&copy; 2025 Bookstore</span> | all rights reserved! </div>
-
-</section>
-
-<!-- footer section ends -->
+            <div class="text-center">
+                <p>&copy; 2025 HostelMate. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 
 
 

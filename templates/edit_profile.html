@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Profile - Book Store</title>
+    <title>Edit Profile</title>
 
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -15,6 +15,13 @@
             background-color: #f8f9fa;
             font-family: 'Poppins', sans-serif;
         }
+
+        .navbar{
+        display: flex;
+        justify-content: flex-end;
+        text-indent: 30px;
+    
+}
 
         .profile-container {
             max-width: 700px;
@@ -72,33 +79,17 @@
     </style>
 </head>
 <body>
-    
-<!-- header section starts -->
-<header class="header">
-    <div class="header-1">
-        <a href="#" class="logo"> <i class="fas fa-book"></i> Book Point </a>
-        
-        <form action="{{ url_for('search') }}" method="get" class="search-form">
-            <input type="text" name="q" placeholder="Search for a book..." required>
-            <button type="submit"><label for="search-box" class="fas fa-search"></label></button>
-        </form>
-        
-        <div class="icons">
-            <div id="search-btn" class="fas fa-search"></div>
-            <a href="{{url_for('cart')}}" class="fas fa-shopping-cart"></a>
-        </div>
-        
+
     </div>
     <div class="header-2">
         <nav class="navbar">
-            <a href="{{ url_for('home') }}">home</a>
-            <a href="{{ url_for('aboutus') }}">About Us</a>
-            <a href="{{ url_for('contact') }}">Contact Us</a>
+            <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+            <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
 
-            <a href="{{ url_for('dashboard') }}">Dashboard</a>  
-            <a href="{{ url_for('profile') }}">Go to Profile</a>
+            <a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>  
+            <a class="nav-link" href="{{ url_for('profile') }}">Go to Profile</a>
                     
-            <a href="{{ url_for('logout') }}">Logout</a>
+            <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
             
         </nav>
     </div>
@@ -131,57 +122,69 @@
             <input type="text" id="mobile" name="mobile" class="form-control" value="{{ current_user.mobile }}" required>
         </div>
 
-        <div class="form-group">
-            <label for="profile_picture">Profile Picture</label>
-            <input type="file" id="profile_picture" name="profile_picture" class="form-control" accept="image/*" onchange="previewImage(event)">
-        </div>
-
         <button type="submit" class="btn-save">Save Changes</button>
     </form>
 </div>
 
 
-<!-- footer section starts -->
-<section class="footer">
-    <div class="box-container">
-        <div class="box">
-            <h3>our locations</h3>
-            <a href="#"> <i class="fas fa-map-marker-alt"></i> India </a>
-            <a href="#"> <i class="fas fa-map-marker-alt"></i> USA </a>
-            <a href="#"> <i class="fas fa-map-marker-alt"></i> Russia </a>
-            <a href="#"> <i class="fas fa-map-marker-alt"></i> France </a>
-            <a href="#"> <i class="fas fa-map-marker-alt"></i> Japan </a>
-        </div>
+<footer class="text-center text-lg-start">
+    <div class="container" id="link_to_nav">
+        <div class="row text-center text-md-start justify-content-between">
+            
+            <div class="col-md-3 d-flex flex-column align-items-md-start align-items-center">
+                <h5>Accommodations</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{{url_for('travel')}}">Destinations</a></li>
+                    <li><a href="#">Bam Hostels</a></li>
+                    <li><a href="#">Hostels</a></li>
+                    <li><a href="#">Workations</a></li>
+                    <li><a href="#">Group Bookings</a></li>
+                </ul>
+            </div>
 
-        <div class="box">
-            <h3>quick links</h3>
-            <a href="#"> <i class="fas fa-arrow-right"></i> Home </a>
-            <a href="#"> <i class="fas fa-arrow-right"></i> Featured </a>
-            <a href="#"> <i class="fas fa-arrow-right"></i> Arrivals </a>
-            <a href="#"> <i class="fas fa-arrow-right"></i> Reviews </a>
-            <a href="#"> <i class="fas fa-arrow-right"></i> Blogs </a>
-        </div>
+            <div class="col-md-3 d-flex flex-column align-items-md-start align-items-center">
+                <h5>Important Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{{url_for('career')}}">Career</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                    <li><a href="#">Volunteer</a></li>
+                    <li><a href="#">Invest & Partner</a></li>
+                    <li><a href="#">Press Mentions</a></li>
+                    <li><a href="{{url_for('about')}}">About Us</a></li>
+                </ul>
+            </div>
 
-        <div class="box">
-            <h3>contact info</h3>
-            <a href="#"> <i class="fas fa-phone"></i> +91 8853455765 </a>
-            <a href="#"> <i class="fas fa-phone"></i> +91 9140026484 </a>
-            <a href="#"> <i class="fas fa-envelope"></i> onlinebookstore@gmail.com </a>
+            <div class="col-md-3 d-flex flex-column align-items-md-start align-items-center">
+                <h5>Policies</h5>
+                <ul class="list-unstyled">
+                    <li><a href="/Hostelmate/templates/">Guest Policy</a></li>
+                    <li><a href="{{url_for('terms')}}">Privacy Policy</a></li>
+                    <li><a href="{{url_for('terms')}}">Cancellation Policy</a></li>
+                    <li><a href="{{url_for('terms')}}">Terms & Conditions</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 social-section">
+                <h5>Follow Us</h5>
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+         
+        <br> 
+        <hr class="my-4">
+
+        <div class="text-center">
+            <p>&copy; 2025 HostelMate. All Rights Reserved.</p>
         </div>
     </div>
-
-    <div class="share">
-        <a href="#" class="fab fa-facebook-f"></a>
-        <a href="#" class="fab fa-twitter"></a>
-        <a href="#" class="fab fa-instagram"></a>
-        <a href="#" class="fab fa-linkedin"></a>
-        <a href="#" class="fab fa-pinterest"></a>
-    </div>
-
-    
-    <div class="credit"><span>&copy; 2025 Bookstore</span> | all rights reserved! </div>
-</section>
-<!-- footer section ends -->
+</footer>
 
 <script src="/static/js/script.js"></script>
 

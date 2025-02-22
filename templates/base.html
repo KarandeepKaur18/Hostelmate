@@ -42,22 +42,7 @@
                             </button>
                             <div class="dropdown-menu p-3" style="min-width: 500px;" aria-labelledby="destinationDropdown">
                                 <div class="container text-center">
-                                    <div class="row g-2">  <!-- g-2 adds spacing between items -->
-                                        <!-- First Row -->
-                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="{{ url_for('bali')}}">Bali</a></div>
-                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="{{ url_for('barcelona')}}">Barcelona</a></div>
-                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="{{ url_for('goa')}}">Goa</a></div>
-                        
-                                        <!-- Second Row -->
-
-                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="{{ url_for('singapur')}}">Singapore</a></div>
-                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="{{ url_for('manali')}}">Manali</a></div>
-                        
-                                        <!-- Third Row -->
-                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="{{ url_for('paris')}}">Paris</a></div>
-                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="{{ url_for('tokyo')}}">Tokyo</a></div>
-                                        <div class="col-4"><a class="dropdown-item py-2 border rounded" href="{{ url_for('rishikesh')}}">Rishikesh</a></div>
-                                    </div>
+                                    <p>dropdown</p>
                                 </div>
                             </div>
                         </li>
@@ -109,10 +94,10 @@
                 <div class="col-md-3 d-flex flex-column align-items-md-start align-items-center">
                     <h5>Accommodations</h5>
                     <ul class="list-unstyled">
-                        <li><a href="{{url_for('travel')}}">Destinations</a></li>
+                        <li><a href="#">Destinations</a></li>
                         <li><a href="#">Bam Hostels</a></li>
                         <li><a href="#">Hostels</a></li>
-                        <li><a href="#">Workations</a></li>
+                        <li><a href="{{url_for('workation')}}">Workations</a></li>
                         <li><a href="#">Group Bookings</a></li>
                     </ul>
                 </div>
@@ -121,10 +106,9 @@
                     <h5>Important Links</h5>
                     <ul class="list-unstyled">
                         <li><a href="{{url_for('career')}}">Career</a></li>
-                        <li><a href="#">Sitemap</a></li>
-                        <li><a href="#">Volunteer</a></li>
-                        <li><a href="#">Invest & Partner</a></li>
-                        <li><a href="#">Press Mentions</a></li>
+                        <li><a href="{{url_for('career')}}">Volunteer</a></li>
+                        <li><a href="{{url_for('career')}}">Invest & Partner</a></li>
+                        <li><a href="{{url_for('press')}}">Press Mentions</a></li>
                         <li><a href="{{url_for('about')}}">About Us</a></li>
                     </ul>
                 </div>

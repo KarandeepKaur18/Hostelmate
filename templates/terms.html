@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block main_block %}
+<link rel="stylesheet" href="{{url_for('static',filename='CSS/terms.css')}}">
+<div class="header">
+    <h1>Terms and Conditions</h1>
+    <p>Please read these terms carefully before booking</p>
+</div>
+
+<div class="container">
+    <div class="terms-section">
+        <h2>1. Booking and Payment</h2>
+        <p>By making a reservation through our website, you agree to provide accurate and complete information. All bookings are subject to availability and confirmation.</p>
+        <ul>
+            <li>Full payment is required at the time of booking</li>
+            <li>We accept major credit cards and PayPal</li>
+            <li>Prices are displayed in local currency and include applicable taxes</li>
+        </ul>
+    </div>
+
+    <div class="terms-section">
+        <h2>2. Cancellation Policy</h2>
+        <p>Our cancellation policy is designed to be fair to all our guests:</p>
+        <ul>
+            <li>Free cancellation up to 48 hours before check-in</li>
+            <li>50% refund for cancellations between 24-48 hours before check-in</li>
+            <li>No refund for cancellations less than 24 hours before check-in</li>
+        </ul>
+    </div>
+
+    <div class="terms-section">
+        <h2>3. Guest Policy</h2>
+        <p>To ensure a comfortable stay for all guests:</p>
+        <ul>
+            <li>Check-in time: 2:00 PM - 10:00 PM</li>
+            <li>Check-out time: 11:00 AM</li>
+            <li>Quiet hours: 11:00 PM - 7:00 AM</li>
+            <li>No smoking inside the building</li>
+            <li>Guests must be 18 years or older</li>
+        </ul>
+    </div>
+
+    <button class="accept-terms" onclick="acceptTerms()">I Accept the Terms and Conditions</button>
+</div>
+<script src="{{ url_for('static',filename='JavaScript/style.js') }}"></script>
+
+{% endblock %}
