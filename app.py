@@ -1,4 +1,4 @@
-from flask import Flask,render_template,redirect,url_for, flash,request , session 
+from flask import Flask,render_template,redirect,url_for, flash,request , session
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask_migrate import Migrate
@@ -777,6 +777,7 @@ def connect_travellers():
 
 
 if __name__ == '__main__':
+    
     app.run(debug=True)
 
     
